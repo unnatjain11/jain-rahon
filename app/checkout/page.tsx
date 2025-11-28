@@ -82,8 +82,7 @@ export default function CheckoutPage() {
   const [sameAsBilling, setSameAsBilling] = useState(true);
   const [isClient, setIsClient] = useState(false);
   const formValues = useRef<CheckoutFormValues | null>(null);
-  const [isTestMode, setIsTestMode] = useState(true);
-  const [upiId, setUpiId] = useState(process.env.NEXT_PUBLIC_UPI_ID || "7380019888@ybl");
+  const [upiId, setUpiId] = useState(process.env.NEXT_PUBLIC_UPI_ID || "unnatjain9988@okaxis");
 
   // Mark when component is mounted on client
   useEffect(() => {
@@ -117,8 +116,8 @@ export default function CheckoutPage() {
   const generateUpiPaymentString = () => {
     const amount = getCartTotal();
     const payeeName = "EasyShop";
-    const payeeMerchantCode = process.env.NEXT_PUBLIC_MERCHANT_CODE || "EASYSHOP";
-    const transactionNote = `Payment for order at EasyShop`;
+    const payeeMerchantCode = process.env.NEXT_PUBLIC_MERCHANT_CODE || "JAIN TRADERS";
+    const transactionNote = `Payment for order at Jain traders`;
     
     return `upi://pay?pa=${upiId}&pn=${payeeName}&mc=${payeeMerchantCode}&tr=ORDER${Date.now().toString().slice(-8)}&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
   };
@@ -510,56 +509,38 @@ export default function CheckoutPage() {
             <DialogDescription>
               <span className="block mb-2">Scan this QR code with any UPI app to pay ₹{getCartTotal().toLocaleString()}</span>
             </DialogDescription>
-            <div className="flex items-center justify-between mb-4">
-            <span className="font-medium">Live Mode</span>
-              <Switch checked={isTestMode} onCheckedChange={setIsTestMode} />
-              <span className="font-medium">Test Mode</span>
-            </div>
-            {isTestMode && (
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-md text-center font-bold animate-pulse">
-                TEST MODE - No actual payment required
-              </div>
-            )}
           </DialogHeader>
           <div className="flex flex-col items-center justify-center p-4">
             <div className="p-3 bg-white rounded-md shadow-sm mb-4 relative">
               <QRCode 
-                value={generateUpiPaymentString()} 
-                size={200}
+          value={generateUpiPaymentString()} 
+          size={200}
               />
-              {isTestMode && (
-                <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
-                  <p className="bg-white px-2 py-1 font-bold text-sm rounded rotate-[-15deg]">TEST MODE</p>
-                </div>
-              )}
             </div>
             <div className="text-center space-y-2">
-              <p className="font-medium">Payee: EasyShop</p>
+              <p className="font-medium">Payee: Jain Traders</p>
               <p className="font-medium">Amount: ₹{getCartTotal().toLocaleString()}</p>
               <p className="text-sm text-muted-foreground">UPI ID: {upiId}</p>
             </div>
             <div className="flex gap-4 mt-6">
               <Button 
-                variant="outline" 
-                onClick={() => setPaymentOpen(false)}
+          variant="outline" 
+          onClick={() => setPaymentOpen(false)}
               >
-                Cancel
+          Cancel
               </Button>
               <Button 
-                onClick={() => {
-                  setPaymentOpen(false);
-                  processOrder();
-                }}
-                className="relative overflow-hidden"
+          onClick={() => {
+            setPaymentOpen(false);
+            processOrder();
+          }}
+          className="relative overflow-hidden"
               >
-                <span>Payment Complete</span>
-                {isTestMode && (
-                  <span className="absolute top-0 right-0 bg-green-500 text-white text-xs px-1 rounded-bl">Test</span>
-                )}
+          <span>Payment Complete</span>
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-4 text-center">
-              {isTestMode ? "This is a test implementation. No actual payment will be processed." : "Please complete the payment in your UPI app and then click 'Payment Complete'."}
+              Please complete the payment in your UPI app and then click 'Payment Complete.'
             </p>
           </div>
         </DialogContent>

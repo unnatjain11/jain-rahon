@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server"
+// Update the path below if your prisma client is located elsewhere, e.g. '../../lib/prisma'
+
 
 // In-memory cart storage (resets on server restart)
 let cart: any[] = [];

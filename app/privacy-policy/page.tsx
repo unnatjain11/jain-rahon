@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
 
         <div className="space-y-4">
           <p>
-            At EasyShop, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and
+            At Jain Traders, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and
             safeguard your information when you visit our website or make a purchase.
           </p>
 
@@ -80,11 +80,11 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-bold">Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us at:</p>
           <p>
-            Email: privacy@easyshop.com
+            Email: jaintraders@gmail.com
             <br />
-            Phone: +91 1234567890
+            Phone: +91 9988664389
             <br />
-            Address: 123 Tech Park, Electronic City, Bangalore, Karnataka 560100, India
+            Address: Jain Traders, Jain Street Jagran Chowk ,Near Sabji mandi road ,Rahon, Punjab (India) 
           </p>
         </div>
       </div>

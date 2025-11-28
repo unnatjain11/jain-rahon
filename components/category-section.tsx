@@ -5,35 +5,36 @@ import { Card, CardContent } from "@/components/ui/card"
 export function CategorySection() {
   const categories = [
     {
-      name: "Smartphones",
-      image: "/products/smartphones.jpg",
-      href: "/products/smartphones",
+      name: "Food & Beverage Containers",
+      image: "/products/containername.jpeg",
+      href: "/products/food-beverage-containers", // Updated href
     },
     {
-      name: "Laptops",
-      image: "/products/laptops.jpg",
-      href: "/products/laptops",
+      name: "Paper & Printing Items",
+      image: "/products/printing.png",
+      href: "/products/paper-printing-items", // Updated href
     },
     {
-      name: "Smart Watches",
-      image: "/products/smartwatches.jpg",
-      href: "/products/smartwatches",
+      name: "Cleaning & Hygiene Products",
+      image: "/products/cleaning.jpeg",
+      href: "/products/cleaning-hygiene-products", // Updated href
     },
     {
-      name: "Luxury Watches",
-      image: "/products/luxurywatches.jpg",
-      href: "/products/luxurywatches",
+      name: "Fragrance & Freshening",
+      image: "/products/toby.png",
+      href: "/products/fragrance-freshening", // Updated href
     },
     {
-      name: "Audio",
-      image: "/products/audio.jpg",
-      href: "/products/audio",
+      name: "Party Items",
+      image: "/products/partyitems.png",
+      href: "/products/party-items", // Updated href
     },
     {
-      name: "Accessories",
-      image: "/products/accessories.jpg",
-      href: "/products/accessories",
+      name: "Carry & Gift Bags",
+      image: "/products/bags.jpeg",
+      href: "/products/carry-box-bags", // Updated href
     },
+    
   ]
 
   return (

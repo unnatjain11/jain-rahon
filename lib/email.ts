@@ -21,27 +21,16 @@ type EmailData = {
  */
 export async function sendEmail({ to, subject, text, html }: EmailData): Promise<boolean> {
   try {
-    // For development, we'll create a test transporter that doesn't actually send emails
-    // but outputs to console, while still indicating success
-    console.log('Sending email:');
-    console.log({ to, subject, text });
-    
-    // Return true to simulate successful sending
-    return true;
-    
-    /* 
-    // Uncomment this code and replace credentials to actually send emails
-    
     await transporter.sendMail({
-      from: 'guest.rajat@gmail.com',
+      from: process.env.EMAIL_USER, // Use the email from environment variable
       to,
       subject,
       text,
       html: html || text,
     });
     
+    console.log('Email sent successfully to:', to);
     return true;
-    */
   } catch (error) {
     console.error('Error sending email:', error);
     return false;
@@ -59,16 +48,16 @@ export async function sendSignupNotification(userData: {
   const { firstName, lastName, email } = userData;
   
   return sendEmail({
-    to: 'guest.rajat@gmail.com',
-    subject: 'New User Registration on EasyShop',
-    text: `A new user has signed up on EasyShop!
+    to: 'jaintradersrahon@gmail.com',
+    subject: 'New User Registration on Jain Traders',
+    text: `A new user has signed up on Jain Traders!
     
 Name: ${firstName} ${lastName}
 Email: ${email}
 Date: ${new Date().toLocaleString()}`,
     html: `
-      <h2>New User Registration on EasyShop</h2>
-      <p>A new user has signed up on EasyShop!</p>
+      <h2>New User Registration on Jain Traders</h2>
+      <p>A new user has signed up on Jain Traders!</p>
       <table>
         <tr>
           <td><strong>Name:</strong></td>
@@ -96,15 +85,15 @@ export async function sendLoginNotification(userData: {
   const { email } = userData;
   
   return sendEmail({
-    to: 'guest.rajat@gmail.com',
-    subject: 'User Login on EasyShop',
-    text: `A user has logged in to EasyShop!
+    to: 'jaintradersrahon@gmail.com',
+    subject: 'User  Login on Jain Traders',
+    text: `A user has logged in to Jain Traders!
     
 Email: ${email}
 Date: ${new Date().toLocaleString()}`,
     html: `
-      <h2>User Login on EasyShop</h2>
-      <p>A user has logged in to EasyShop!</p>
+      <h2>User Login on Jain Traders</h2>
+      <p>A user has logged in to Jain Traders!</p>
       <table>
         <tr>
           <td><strong>Email:</strong></td>
@@ -117,4 +106,4 @@ Date: ${new Date().toLocaleString()}`,
       </table>
     `,
   });
-} 
+}

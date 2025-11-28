@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
 export const loadRazorpay = () => {
   return new Promise<any>((resolve, reject) => {
     const script = document.createElement("script")

@@ -15,21 +15,21 @@ export default function ProductsPage() {
   const { toast } = useToast()
   
   const handleAddToCart = (product: Product) => {
-    addToCart({ ...product, quantity: 1 })
+    addToCart({ ...product, image: product.images[0], quantity: 1 })
     toast({
       title: "Added to cart",
       description: `${product.name} has been added to your cart.`,
     })
   }
   
-  // Create a list of featured products from all categories
+  // Create a list of featured products from all categories with safe fallback to empty array
   const featuredProducts = [
-    ...productData.smartphones.slice(0, 2),
-    ...productData.laptops.slice(0, 2),
-    ...productData.smartwatches.slice(0, 1),
-    ...productData.luxurywatches.slice(0, 1),
-    ...productData.audio.slice(0, 1),
-    ...productData.accessories.slice(0, 1),
+    ...(productData.foodBeverageContainers ?? []).slice(0, 2),
+    ...(productData.partyItems ?? []).slice(0, 2),
+    ...(productData.paperPrintingItems ?? []).slice(0, 1),
+    ...(productData.cleaningHygieneProducts ?? []).slice(0, 1),
+    ...(productData.fragranceFreshening ?? []).slice(0, 1),
+    ...(productData.carryBoxBags ?? []).slice(0, 1),
   ]
 
   return (
@@ -40,23 +40,23 @@ export default function ProductsPage() {
           <p className="text-muted-foreground">Browse our collection of products across categories</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Link href="/products/smartphones">
-            <Button variant="outline">Smartphones</Button>
+          <Link href="/products/food-beverage-containers">
+            <Button variant="outline">Food & Beverage Containers</Button>
           </Link>
-          <Link href="/products/laptops">
-            <Button variant="outline">Laptops</Button>
+          <Link href="/products/party-items">
+            <Button variant="outline">Party Items</Button>
           </Link>
-          <Link href="/products/smartwatches">
-            <Button variant="outline">Smart Watches</Button>
+          <Link href="/products/paper-printing-items">
+            <Button variant="outline">Paper & Printing Items</Button>
           </Link>
-          <Link href="/products/luxurywatches">
-            <Button variant="outline">Luxury Watches</Button>
+          <Link href="/products/cleaning-hygiene-products">
+            <Button variant="outline">Cleaning & Hygiene Products</Button>
           </Link>
-          <Link href="/products/audio">
-            <Button variant="outline">Audio</Button>
+          <Link href="/products/fragrance-freshening">
+            <Button variant="outline">Fragrance & Freshening</Button>
           </Link>
-          <Link href="/products/accessories">
-            <Button variant="outline">Accessories</Button>
+          <Link href="/products/carry-box-bags">
+            <Button variant="outline">Carry & box Bags</Button>
           </Link>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function ProductsPage() {
                 <Link href={`/products/${product.id}`}>
                   <div className="overflow-hidden">
                     <Image
-                      src={product.image}
+                      src={product.images[0]}
                       alt={product.name}
                       width={300}
                       height={300}
@@ -108,34 +108,34 @@ export default function ProductsPage() {
         <h2 className="text-2xl font-bold mb-8">Shop by Category</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           <CategoryCard 
-            title="Smartphones" 
-            image="/products/smartphones.jpg" 
-            href="/products/smartphones" 
+            title="Food & Beverage Containers" 
+            image="/products/containername.jpeg" 
+            href="/products/food-beverage-containers" 
           />
           <CategoryCard 
-            title="Laptops" 
-            image="/products/laptops.jpg" 
-            href="/products/laptops" 
+            title="Party Items " 
+            image="/products/partyitems.png" 
+            href="/products/party-items" 
           />
           <CategoryCard 
-            title="Smart Watches" 
-            image="/products/smartwatches.jpg" 
-            href="/products/smartwatches" 
+            title="Paper & Printing Items" 
+            image="/products/printing.png" 
+            href="/products/paper-printing-items" 
           />
           <CategoryCard 
-            title="Luxury Watches" 
-            image="/products/luxurywatches.jpg" 
-            href="/products/luxurywatches" 
+            title="Cleaning & Hygiene Products" 
+            image="/products/cleaning.jpeg" 
+            href="/products/cleaning-hygiene-products" 
           />
           <CategoryCard 
-            title="Audio" 
-            image="/products/audio.jpg" 
-            href="/products/audio" 
+            title="Fragrance & Freshening" 
+            image="/products/toby.png" 
+            href="/products/fragrance-freshening" 
           />
           <CategoryCard 
-            title="Accessories" 
-            image="/products/accessories.jpg" 
-            href="/products/accessories" 
+            title="Carry & box Bags" 
+            image="/products/bags.jpeg" 
+            href="/products/carry-box-bags" 
           />
         </div>
       </div>

@@ -89,7 +89,7 @@ export function Header() {
           <SheetContent side="left" className="pr-0">
             <nav className="grid gap-6 text-lg font-medium">
               <Link href="/" className="flex items-center space-x-2 text-sm font-bold" onClick={() => setIsOpen(false)}>
-                <span>EasyShop</span>
+                <span>Jain Traders</span>
               </Link>
               {routes.map((route) => (
                 <Link
@@ -108,7 +108,7 @@ export function Header() {
           </SheetContent>
         </Sheet>
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <span className="hidden font-bold sm:inline-block">EasyShop</span>
+          <span className="hidden font-bold sm:inline-block">Jain Traders</span>
         </Link>
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
@@ -129,47 +129,67 @@ export function Header() {
                       >
                         <div className="mb-2 mt-4 text-lg font-medium">All Products</div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Browse our complete collection of electronics and watches
+                          Browse our complete collection of Disposable and Hygiene products
                         </p>
                       </a>
                     </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/smartphones" legacyBehavior passHref>
+                    <Link href="/products/food-beverage-containers" legacyBehavior passHref>
                       <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Smartphones</div>
+                        <div className="text-sm font-medium leading-none">Food & Beverage Containers</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Latest smartphones and mobile devices
+                          Quality containers for serve Food and Drinks
                         </p>
                       </NavigationMenuLink>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/laptops" legacyBehavior passHref>
+                    <Link href="/products/party-items" legacyBehavior passHref>
                       <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Laptops</div>
+                        <div className="text-sm font-medium leading-none">Party Items</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Powerful laptops for work and gaming
+                             Decoration items for Special Occasions                         
                         </p>
                       </NavigationMenuLink>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/smartwatches" legacyBehavior passHref>
+                    <Link href="/products/paper-printing-items" legacyBehavior passHref>
                       <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Smart Watches</div>
+                        <div className="text-sm font-medium leading-none">Paper & Printing Items</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Feature-packed smartwatches
+                          Printing, Branding and Communication
                         </p>
                       </NavigationMenuLink>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/luxurywatches" legacyBehavior passHref>
+                    <Link href="/products/cleaning-hygiene-products" legacyBehavior passHref>
                       <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Luxury Watches</div>
+                        <div className="text-sm font-medium leading-none">Cleaning & Hygiene Products</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Premium timepieces
+                          Personal or Environmental Cleanliness
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/products/fragrance-freshening" legacyBehavior passHref>
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Fragrance & Freshening</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        For Improving the smell of a room or area
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/products/carry-box-bags" legacyBehavior passHref>
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Carry Bags & Boxes</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Used for carrying or presenting Something
                         </p>
                       </NavigationMenuLink>
                     </Link>

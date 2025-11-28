@@ -7,9 +7,9 @@ export function Footer() {
       <div className="container px-4 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           <div>
-            <h2 className="text-lg font-bold">EasyShop</h2>
+            <h2 className="text-lg font-bold">Jain Traders</h2>
             <p className="mt-4 text-sm text-muted-foreground">
-              Your one-stop shop for electronics and watches. Quality products at affordable prices.
+              Your one-stop shop for disposable and hygiene daily use products . Quality products at affordable prices.
             </p>
             <div className="flex mt-6 space-x-4">
               <Link
@@ -22,7 +22,7 @@ export function Footer() {
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/jaintradersrahon.in?igsh=MXE2cmIxbGxnem50Yw=="
                 className="text-muted-foreground hover:text-foreground"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,33 +45,33 @@ export function Footer() {
             <h3 className="text-sm font-medium">Shop</h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <Link href="/products/smartphones" className="text-muted-foreground hover:text-foreground">
-                  Smartphones
+                <Link href="/products/food-beverage-containers" className="text-muted-foreground hover:text-foreground">
+                  Food & Beverage Containers
                 </Link>
               </li>
               <li>
-                <Link href="/products/laptops" className="text-muted-foreground hover:text-foreground">
-                  Laptops
+                <Link href="/products/party-items" className="text-muted-foreground hover:text-foreground">
+                  Party Items
                 </Link>
               </li>
               <li>
-                <Link href="/products/smartwatches" className="text-muted-foreground hover:text-foreground">
-                  Smart Watches
+                <Link href="/products/paper-printing-items" className="text-muted-foreground hover:text-foreground">
+                  Paper & Printing Items
                 </Link>
               </li>
               <li>
-                <Link href="/products/luxurywatches" className="text-muted-foreground hover:text-foreground">
-                  Luxury Watches
+                <Link href="/products/cleaning-hygiene-products" className="text-muted-foreground hover:text-foreground">
+                  Cleaning & Hygiene Products
                 </Link>
               </li>
               <li>
-                <Link href="/products/audio" className="text-muted-foreground hover:text-foreground">
-                  Audio
+                <Link href="/products/fragrance-freshening" className="text-muted-foreground hover:text-foreground">
+                  Fragrance & Freshening
                 </Link>
               </li>
               <li>
-                <Link href="/products/accessories" className="text-muted-foreground hover:text-foreground">
-                  Accessories
+                <Link href="/products/carry-box-bags" className="text-muted-foreground hover:text-foreground">
+                  Carry Bags & Box 
                 </Link>
               </li>
             </ul>
@@ -119,7 +119,7 @@ export function Footer() {
         </div>
         <div className="pt-8 mt-8 border-t">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} EasyShop. All rights reserved by Janardan Singh Foundation. 
+            &copy; {new Date().getFullYear()} Jain Traders. All rights reserved by Unnat Jain. 
           </p>
         </div>
       </div>

@@ -10,22 +10,22 @@ import { useCart } from "@/components/cart-provider"
 import { productData } from "@/lib/product-data"
 
 type FeaturedProductsProps = {
-  category: "electronics" | "watches"
+  category: "foodpacking" | "hygiene" 
 }
 
 export function FeaturedProducts({ category }: FeaturedProductsProps) {
   const { addToCart } = useCart()
-  let products = []
-  if (category === "electronics") {
+  let products: typeof productData.foodBeverageContainers = []
+
+  if (category === "foodpacking") {
     products = [
-      ...productData.smartphones.slice(0, 1),
-      ...productData.laptops.slice(0, 2),
-      ...productData.audio.slice(0, 1),
+      ...(productData.foodBeverageContainers ?? []), // Use optional chaining to avoid undefined
+      ...(productData.wrappingPackingMaterials ?? []),
     ]
-  } else if (category === "watches") {
+  } else if (category === "hygiene") {
     products = [
-      ...productData.smartwatches.slice(0, 2),
-      ...productData.luxurywatches.slice(0, 2),
+      ...(productData.cleaningHygieneProducts ?? []),
+      ...(productData.fragranceFreshening ?? []),
     ]
   }
 
@@ -38,7 +38,7 @@ export function FeaturedProducts({ category }: FeaturedProductsProps) {
               <Link href={`/products/${product.id}`}>
                 <div className="overflow-hidden">
                   <ImageWithFallback
-                    src={product.image}
+                    src={product.images[0]}
                     alt={product.name}
                     width={300}
                     height={300}
@@ -63,7 +63,7 @@ export function FeaturedProducts({ category }: FeaturedProductsProps) {
             <Button
               className="w-full"
               size="sm"
-              onClick={() => addToCart({ ...product, quantity: 1 })}
+              onClick={() => addToCart({ ...product, image: product.images[0], quantity: 1 })}
             >
               <ShoppingCart className="mr-2 h-4 w-4" />
               Add to Cart

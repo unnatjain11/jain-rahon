@@ -10,13 +10,13 @@ export default function TermsOfServicePage() {
         <section>
           <h2 className="text-xl font-semibold mb-2">1. Introduction</h2>
           <p>
-            Welcome to EasyShop! These Terms of Service ("Terms") govern your use of our website and services. By accessing or using EasyShop, you agree to be bound by these Terms. If you do not agree, please do not use our services.
+            Welcome to Jain Traders! These Terms of Service ("Terms") govern your use of our website and services. By accessing or using Jain Traders, you agree to be bound by these Terms. If you do not agree, please do not use our services.
           </p>
         </section>
         <section>
           <h2 className="text-xl font-semibold mb-2">2. Use of Our Service</h2>
           <p>
-            You may use EasyShop for lawful purposes only. You agree not to use our site for any illegal or unauthorized purpose, and you must not violate any laws in your jurisdiction.
+            You may use Jain Traders for lawful purposes only. You agree not to use our site for any illegal or unauthorized purpose, and you must not violate any laws in your jurisdiction.
           </p>
         </section>
         <section>
@@ -28,7 +28,7 @@ export default function TermsOfServicePage() {
         <section>
           <h2 className="text-xl font-semibold mb-2">4. Orders & Payment</h2>
           <p>
-            All orders placed through EasyShop are subject to acceptance and availability. We reserve the right to refuse or cancel any order. Payment must be made in full before your order is processed and shipped.
+            All orders placed through Jain traders are subject to acceptance and availability. We reserve the right to refuse or cancel any order. Payment must be made in full before your order is processed and shipped.
           </p>
         </section>
         <section>
@@ -46,19 +46,19 @@ export default function TermsOfServicePage() {
         <section>
           <h2 className="text-xl font-semibold mb-2">7. Intellectual Property</h2>
           <p>
-            All content on EasyShop, including text, graphics, logos, and images, is the property of EasyShop or its content suppliers and is protected by copyright and other intellectual property laws.
+            All content on Jain traders, including text, graphics, logos, and images, is the property of Jain Traders or its content suppliers and is protected by copyright and other intellectual property laws.
           </p>
         </section>
         <section>
           <h2 className="text-xl font-semibold mb-2">8. Limitation of Liability</h2>
           <p>
-            To the fullest extent permitted by law, EasyShop shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.
+            To the fullest extent permitted by law, Jain Traders shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.
           </p>
         </section>
         <section>
           <h2 className="text-xl font-semibold mb-2">9. Changes to Terms</h2>
           <p>
-            We reserve the right to update or modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of EasyShop constitutes acceptance of the revised Terms.
+            We reserve the right to update or modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of Jain Traders constitutes acceptance of the revised Terms.
           </p>
         </section>
         <section>

@@ -83,6 +83,17 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+/* Add to your global CSS */
+button[type="button"] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 2px;
+}
+button[type="button"]:focus {
+  outline: none;
+}
 
 @layer base {
   * {

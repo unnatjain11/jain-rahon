@@ -9,20 +9,20 @@ export default function ReturnPolicyPage() {
 
         <div className="space-y-4">
           <p>
-            At EasyShop, we want you to be completely satisfied with your purchase. If you're not entirely happy with
+            At Jain Traders, we want you to be completely satisfied with your purchase. If you're not entirely happy with
             your order, we're here to help.
           </p>
 
           <h2 className="text-xl font-bold">Return Period</h2>
           <p>
-            You have 30 days from the date of delivery to return your item(s). To be eligible for a return, your item
+            You have 15 days from the date of delivery to return your item(s). To be eligible for a return, your item
             must be in the same condition that you received it, unworn or unused, with tags, and in its original
             packaging.
           </p>
 
           <h2 className="text-xl font-bold">Return Process</h2>
           <p>
-            To start a return, please email us at returns@easyshop.com or contact our customer service team. Please
+            To start a return, please email us at jaintraders@gmail.com or contact our customer service team. Please
             include your order number and the reason for your return. We will provide you with a Return Merchandise
             Authorization (RMA) number and instructions for how to send your item back to us.
           </p>
@@ -47,7 +47,7 @@ export default function ReturnPolicyPage() {
 
           <h2 className="text-xl font-bold">Damaged or Defective Items</h2>
           <p>
-            If you receive a damaged or defective item, please contact us immediately at support@easyshop.com with
+            If you receive a damaged or defective item, please contact us immediately at jaintraders@gmail.com with
             photos of the damage. We will work with you to resolve the issue promptly, either by sending a replacement
             or issuing a refund.
           </p>
@@ -73,17 +73,17 @@ export default function ReturnPolicyPage() {
             If you haven't received a refund yet, first check your bank account again. Then contact your credit card
             company, it may take some time before your refund is officially posted. Next contact your bank. There is
             often some processing time before a refund is posted. If you've done all of this and you still have not
-            received your refund yet, please contact us at support@easyshop.com.
+            received your refund yet, please contact us at jaintraders@gmail.com .
           </p>
 
           <h2 className="text-xl font-bold">Questions</h2>
           <p>If you have any questions about our return policy, please contact us:</p>
           <p>
-            Email: returns@easyshop.com
+            Email: jaintraders@gmail.com
             <br />
-            Phone: +91 1234567890
+            Phone: +91 9988664389
             <br />
-            Address: 123 Tech Park, Electronic City, Bangalore, Karnataka 560100, India
+            Address: Jain Street,Jagran Chowk , Sabji Mandi road,  Rahon, Nawanshahr(Punjab) 144517, India
           </p>
         </div>
       </div>

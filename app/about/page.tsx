@@ -7,9 +7,9 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-10">
       <div className="space-y-12">
         <div className="space-y-4 text-center">
-          <h1 className="text-4xl font-bold tracking-tight">About EasyShop</h1>
+          <h1 className="text-4xl font-bold tracking-tight">About Jain Traders</h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground">
-            Your trusted destination for premium electronics and watches
+            Your trusted destination for premium Quality Disposable Products
           </p>
         </div>
 
@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="space-y-4">
             <h2 className="text-3xl font-bold">Our Story</h2>
             <p className="text-muted-foreground">
-              Founded in 2020, EasyShop began with a simple mission: to provide high-quality electronics and watches at
+              Founded in 2012, Jain Traders began with a simple mission: to provide high-quality disposable Products at
               affordable prices. What started as a small online store has grown into a trusted e-commerce platform
               serving customers nationwide.
             </p>
@@ -27,8 +27,15 @@ export default function AboutPage() {
               without breaking the bank.
             </p>
           </div>
-          <div className="relative h-[300px] rounded-lg overflow-hidden">
-            <Image src="/products/about-team.jpg" alt="EasyShop team" fill className="object-cover" />
+          <div className="relative h-[400px] rounded-lg overflow-hidden">
+            <Image
+              src="/products/about-team.jpg"
+              alt="Jaintraders team"
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
           </div>
         </div>
 
@@ -64,7 +71,7 @@ export default function AboutPage() {
             <div className="space-y-4">
               <h2 className="text-3xl font-bold">Our Promise</h2>
               <p className="text-muted-foreground">
-                At EasyShop, we stand behind every product we sell. That's why we offer a 30-day return policy and a
+                At Jain Traders, we stand behind every product we sell. That's why we offer a 15-day return policy and a
                 minimum 1-year warranty on all items. If you're not completely satisfied with your purchase, we'll make
                 it right.
               </p>

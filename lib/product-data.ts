@@ -1,11 +1,18 @@
-// Product data for various categories
-// Each product has a unique ID and details
+export interface Review {
+  id?: string;
+  userId?: string;
+  userName?: string;
+  rating: number;
+  comment: string;
+  date?: string;
+  reviews?: string;
+}
 
 export interface Product {
   id: string;
   name: string;
   price: number;
-  image: string;
+  images: string[]; // Updated to include an array of images
   category: string;
   badge?: string;
   description?: string;
@@ -13,965 +20,1465 @@ export interface Product {
   brand?: string;
   model?: string;
   warranty?: string;
+  reviews?: Review[]; // New property for reviews
 }
 
 export const productData: Record<string, Product[]> = {
-  smartphones: [
+  foodBeverageContainers: [
     {
-      id: "sm-001",
-      name: "Ultra Slim X Pro",
-      price: 59999,
-      image: "/products/smartphone.jpg",
-      category: "smartphones",
+      id: "f-001",
+      name: "150ml Bru Printed Paper Glass",
+      price: 50,
+      images: [
+        "/products/bru.png",
+        "/products/bru_1.png",
+      ],
+      category: "food-beverage-containers",
       badge: "New",
-      description: "Experience the future with Ultra Slim X Pro. This premium smartphone features a stunning 6.7-inch AMOLED display, 108MP camera, and the latest processor for lightning-fast performance.",
+      description: "Our 150ml paper glass is the perfect solution for serving hot or cold beverages in an eco-conscious and hassle-free way. Crafted from high-quality food-grade paper with a leak-resistant coating, it ensures durability without compromising safety or hygiene. Ideal for tea, coffee, juice, or water at offices, events, cafes, or home use.",
       features: [
-        "6.7-inch AMOLED Display (120Hz)",
-        "108MP Main Camera with 8K Video",
-        "5nm Processor with 12GB RAM",
-        "5000mAh Battery with 65W Fast Charging",
-        "IP68 Water and Dust Resistance"
+        "Capacity: 150 ml",
+        "Pieces: 80 per pack",
+        "Material: Food-grade paper with PE coating",
+        "Use: Suitable for both Tea and Coffee",
+        "Ideal for: Parties, catering, takeaway counters, vending machines and daily use",
+        "Eco-friendly: Biodegradable and recyclable",
       ],
-      brand: "TechGiant",
-      model: "X Pro 2024",
-      warranty: "2 Years"
+      brand: "bru Coffee",
+      model: "Spectra",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Great quality and perfect for parties!"
+        },
+        {
+          rating: 5,
+          comment: "Exceptional craftsmanship and timeless design.",
+        }
+      ]
     },
     {
-      id: "sm-002",
-      name: "Infinity Edge 5G",
-      price: 45999,
-      image: "/products/smartphones.jpg",
-      category: "smartphones",
-      description: "The Infinity Edge 5G pushes boundaries with its edge-to-edge display and next-generation connectivity. Perfect for multimedia consumption and productivity.",
-      features: [
-        "6.5-inch Bezel-less Display",
-        "64MP Quad Camera Setup",
-        "5G Connectivity",
-        "4500mAh Battery",
-        "In-Display Fingerprint Sensor"
+      id: "f-002",
+      name: "Paper Glass 200ml",
+      price: 70,
+      images: [
+        "/products/starbucks.png",
+        "/products/starbucks_1.png",
       ],
-      brand: "MobiTech",
-      model: "IE-5G-2024"
+      category: "food-beverage-containers",
+      description: "Crafted from premium food-grade paper, this cup offers the perfect balance of durability and eco-friendliness. Its ideal size makes it suitable for both hot and cold beverages like coffee, tea, juice, or water. Whether it’s for events, offices, cafes, or daily use, this cup delivers convenience without compromising quality.",
+      features: [
+        "Capacity: 200 ml",
+        "Pieces: 80 per pack",
+        "Material: Food-safe, biodegradable paper with leak-resistant coating",
+        "Use: Suitable for hot & cold drinks",
+        "Perfect for: Parties, takeaways, catering, corporate use, and vending machines",
+      ],
+      brand: "Starbucks Design",
+      model: "Spectra",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Good for the price, but could be sturdier."
+        }
+      ]
     },
     {
-      id: "sm-003",
-      name: "Pixel Perfect Pro",
-      price: 79999,
-      image: "/products/smartphone.jpg",
-      category: "smartphones",
-      badge: "Premium",
-      description: "Capture life's moments with unparalleled clarity. The Pixel Perfect Pro features the most advanced camera system on a smartphone, combined with AI enhancements.",
-      features: [
-        "6.3-inch QHD+ OLED Display",
-        "50MP Main Camera with Advanced Night Mode",
-        "Neural Processing Unit for AI Photography",
-        "Wireless Charging",
-        "5 Years of Software Updates"
+      id: "f-003",
+      name: "Aluminum Container 450ml",
+      price: 220,
+      images: [
+        "/products/containers.png",
+        "/products/containerbox.png"
       ],
-      brand: "PixelTech",
-      model: "PPP-2024",
-      warranty: "3 Years"
+      category: "food-beverage-containers",
+      description: "Aluminum containers are the perfect solution for serving hot food items in an eco-conscious and hassle-free way. Crafted from high-quality food-grade aluminum with a leak-resistant coating, it ensures durability without compromising safety or hygiene.",
+      features: [
+        "Pieces: 100 per pack",
+        "Capacity: 450 ml",
+        "Material: Food-grade aluminium with leak-resistant coating",
+        "Use: Suitable for hot food items",
+        "Ideal for: Parties, catering, takeaway counters and daily use",
+      ],
+      brand: "AluSHEILD",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Good for the price."
+        }
+      ]
     },
     {
-      id: "sm-004",
-      name: "Budget King 4G",
-      price: 14999,
-      image: "/products/smartphones.jpg",
-      category: "smartphones",
-      badge: "Best Value",
-      description: "Who says quality has to be expensive? The Budget King 4G offers premium features at an affordable price point without compromising on performance.",
-      features: [
-        "6.2-inch HD+ Display",
-        "48MP Triple Camera",
-        "Octa-core Processor",
-        "5000mAh Battery",
-        "Fast Charging Support"
+      id: "f-004",
+      name: "Aluminium Container 660ml",
+      price: 330,
+      images: [
+        "/products/container650.png",
+        "/products/container-650.png",
       ],
-      brand: "ValueTech",
-      model: "BK-400"
+      category: "food-beverage-containers",
+      description: "Aluminium containers are the perfect solution for serving hot food items in an eco-conscious and hassle-free way. Crafted from high-quality food-grade aluminium with a leak-resistant coating, it ensures durability without compromising safety or hygiene.",
+      features: [
+        "Pieces: 100 per pack",
+        "Capacity: 660 ml",
+        "Material: Food-grade aluminium with leak-resistant coating",
+        "Use: Suitable for hot food items",
+        "Ideal for: Parties, catering, takeaway counters and daily use",
+      ],
+      brand: "AluSHEILD",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Good for the price."
+        },
+        {
+          rating: 5,
+          comment: "best quality"
+        }
+      ]
     },
     {
-      id: "sm-005",
-      name: "Fold Master X",
-      price: 149999,
-      image: "/products/smartphone.jpg",
-      category: "smartphones",
-      badge: "Innovative",
-      description: "Experience the future of smartphones with the revolutionary Fold Master X. This foldable device transforms from a phone to a tablet in seconds.",
-      features: [
-        "7.6-inch Foldable AMOLED Main Display",
-        "6.2-inch Cover Display",
-        "Triple Camera System with Space Zoom",
-        "12GB RAM with 512GB Storage",
-        "S Pen Support"
+      id: "f-005",
+      name: "Paper Glass 350ml",
+      price: 50,
+      images: [
+        "/products/paper_glass_red2.png",
+        "/products/paperglass_red.png",
       ],
-      brand: "FoldTech",
-      model: "FMX-2024",
-      warranty: "2 Years"
+      category: "food-beverage-containers",
+      description: "Crafted from premium food-grade paper, this cup offers the perfect balance of durability and eco-friendliness. Its ideal size makes it suitable for both hot and cold beverages like coffee, tea, juice, or water. Whether it’s for events, offices, cafes, or daily use, this cup delivers convenience without compromising quality.",
+      features: [
+        "Pieces: 50 per pack",
+        "Capacity: 350 ml",
+        "Material: Food-safe, biodegradable paper with leak-resistant coating",
+        "Use: Suitable for hot & cold drinks",
+        "Ideal for: Parties, catering, takeaway counters and daily use",
+      ],
+      reviews: [
+        {
+          rating: 4,
+          comment: "Good for the price."
+        }
+      ]
     },
     {
-      id: "sm-006",
-      name: "Gaming Beast Pro",
-      price: 69999,
-      image: "/products/smartphones.jpg",
-      category: "smartphones",
-      description: "Designed for mobile gamers, the Gaming Beast Pro features advanced cooling technology, high refresh rate display, and customizable gaming controls.",
-      features: [
-        "6.8-inch 165Hz AMOLED Display",
-        "Snapdragon Elite Gaming Processor",
-        "Liquid Cooling System",
-        "6000mAh Battery",
-        "Shoulder Triggers for Gaming"
+      id: "f-006",
+      name: "Lava Cake Container",
+      price: 150,
+      images: [
+        "/products/lava2.jpeg",
+        "/products/lava3.jpeg",
+        "/products/lava container.png",
+        "/products/lava1.jpeg"
       ],
-      brand: "GameTech",
-      model: "GBP-Elite",
-      warranty: "2 Years"
+      category: "food-beverage-containers",
+      description: "Aluminium containers are the perfect solution for serving hot food items in an eco-conscious and hassle-free way. Crafted from high-quality food-grade aluminium with a leak-resistant coating, it ensures durability without compromising safety or hygiene.",
+      features: [
+        "Capacity: 150 ml",
+        "Material: Food-grade aluminium with leak-resistant coating",
+        "Use: Suitable for hot & cold drinks",
+        "Ideal for: Parties, catering, takeaway counters and daily use",
+      ],
+      brand: "AluSHEILD",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Good for the price."
+        }
+      ]
     },
     {
-      id: "sm-007",
-      name: "Ultra Secure Crypto",
-      price: 89999,
-      image: "/products/smartphone.jpg",
-      category: "smartphones",
-      badge: "Secure",
-      description: "The Ultra Secure Crypto smartphone puts security first with hardware encryption, blockchain technology integration, and advanced biometric security.",
-      features: [
-        "6.1-inch Protected Display",
-        "Hardware Encryption Chip",
-        "Cryptocurrency Wallet Integration",
-        "Multi-factor Authentication",
-        "Tamper-proof Hardware"
+      id: "f-007",
+      name: "Plastic Container (2250)",
+      price: 15,
+      images: [
+        "/products/royal_container.png",
+        "/products/royal_container.png",
       ],
-      brand: "SecureTech",
-      model: "USC-Titan",
-      warranty: "3 Years"
+      badge: "Per pcs",
+      category: "food-beverage-containers",
+      description: "Plastic Containers ",
+      features: [
+        "Size Number: 2250",
+        "Material: Fresh plastic container",
+        "Ideal for: Parties, catering, takeaway counters and daily use",
+      ],
+      brand: "AluSHEILD",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Good for the price."
+        }
+      ]
     },
     {
-      id: "sm-008",
-      name: "Camera Master 108",
-      price: 54999,
-      image: "/products/smartphones.jpg",
-      category: "smartphones",
-      description: "For photography enthusiasts, the Camera Master 108 offers DSLR-level photography capabilities in a smartphone form factor.",
-      features: [
-        "6.4-inch AMOLED Display",
-        "108MP Main Camera with 1-inch Sensor",
-        "10x Optical Zoom",
-        "Pro Photography Modes",
-        "8K Video Recording"
+      id: "f-008",
+      name: "Biodegradable 5CP Tray",
+      price: 199,
+      images: [
+        "/products/5cp.png",
+        "/products/Bio_5cp.png",
+        "/products/tray.jpeg"
       ],
-      brand: "CameraTech",
-      model: "CM-108Pro",
-      warranty: "2 Years"
+      category: "cleaning-hygiene-products",
+      description: "  Biodegradable plate ",
+      features: [
+        "Pack of 25pcs",
+        "Microwave Safe",
+        "Water and Oil Resistance",
+        "Eco-friendly",
+        "Food Grade Material used for manufacturing",
+        "Perfect for formal events",
+        "High absorbency"
+      ],
+      brand: "Signature Fresh",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Fantastic quality, used for our wedding!"
+        }
+      ]
     },
     {
-      id: "sm-009",
-      name: "Battery Champion 7000",
-      price: 32999,
-      image: "/products/smartphone.jpg",
-      category: "smartphones",
-      badge: "Long-lasting",
-      description: "Never worry about running out of battery again. The Battery Champion 7000 features a massive battery that lasts multiple days on a single charge.",
-      features: [
-        "6.5-inch Power-efficient Display",
-        "7000mAh Ultra-capacity Battery",
-        "30W Fast Charging",
-        "Reverse Charging",
-        "Power Saving AI"
+      id: "f-009",
+      name: "Food Plus Cling Wrap",
+      price: 260,
+      images: [
+        "/products/clingfilm.png",
+        "/products/cling best fresh.png"
       ],
-      brand: "PowerTech",
-      model: "BC-7000",
-      warranty: "2 Years"
+      category: "food-beverage-containers",
+      description: "Food Plus Cling Wrap is great for keeping food fresh and safe. It's designed for easy handling and storage.",
+      features: [
+        "Material: Safe for food contact",
+        "Use: Ideal for wrapping food items",
+        "Convenience: Easily tears for quick use",
+        "Ideal for: Homes, restaurants, and catering"
+      ],
+      brand: "Food Plus",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Great cling wrap, keeps food fresh!"
+        },
+        {
+          rating: 4,
+          comment: "Good quality, but a bit pricey."
+        }
+      ]
     },
     {
-      id: "sm-010",
-      name: "Executive Business Pro",
-      price: 59999,
-      image: "/products/smartphones.jpg",
-      category: "smartphones",
-      description: "Designed for business professionals, the Executive Business Pro offers advanced productivity features, secure enterprise integration, and premium build quality.",
-      features: [
-        "6.3-inch Anti-glare Display",
-        "Enterprise-grade Security",
-        "Microsoft Office Integration",
-        "Noise Cancellation for Calls",
-        "Desktop Mode with External Display Support"
+      id: "f-010",
+      name: "Jain-Ex Butterpaper Paper",
+      price: 149,
+      images: [
+        "/products/butterpaper_200pcs.png",
+        "/products/ChatGPT Image Jun 20, 2025, 10_05_19 PM.png"
       ],
-      brand: "BusinessTech",
-      model: "EBP-2024",
-      warranty: "3 Years"
+      category: "food-beverage-containers",
+      description: "Perfect for wrapping, showcasing, and serving food, Jain-Ex food wrapping paper is versatile and reliable.",
+      features: [
+        "Size: 11x11 , 11x14",
+        "Material: High quality food-safe paper",
+        "Use: Ideal for cafes and restaurants",
+        "Convenience: Easy to use and cut"
+      ],
+      brand: "Jain-Ex",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Great quality butter paper, perfect for my bakery!"
+        },
+        {
+          rating: 4,
+          comment: "Good for the price, but could be thicker."
+        }
+      ]
+    },
+    {
+      id: "f-011",
+      name: "Jain-Ex Aluminum Foil 1 kg",
+      price: 480,
+      images: [
+        "/products/foil_1kg.png",
+        "/products/foil-1kg.png"
+      ],
+      category: "food-beverage-containers",
+      description: "This aluminum foil is perfect for wrapping and cooking, ensuring freshness and safety.",
+      features: [
+        "Weight: 1 kg",
+        "Material: Food-grade aluminum",
+        "Use: Suitable for cooking and storage",
+        "Convenience: Easy to tear and use"
+      ],
+      brand: "Jain-Ex",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Excellent quality aluminum foil, very durable!"
+        },
+        {
+          rating: 4,
+          comment: "Good for cooking, but a bit expensive."
+        }
+      ]
+    },
+    {
+      id: "f-012",
+      name: "Jain-Ex Aluminum Foil 9 meters",
+      price: 60,
+      images: [
+        "/products/foil_9mtr.png",
+        "/products/foil-9.png"
+      ],
+      category: "food-beverage-containers",
+      description: "A versatile aluminum foil roll that meets your kitchen needs.",
+      features: [
+        "Length: 9 meters",
+        "Material: Food-grade aluminum",
+        "Use: Ideal for wrapping, cooking, or grilling",
+        "Convenience: Tearing edge included for easy use"
+      ],
+      brand: "Jain-Ex",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Great aluminum foil, very handy for cooking!"
+        },
+        {
+          rating: 3,
+          comment: "Good quality, but could be thicker."
+        }
+      ]
+    },
+    {
+      id: "f-013",
+      name: "Jain-Ex Aluminum Foil 25 meters",
+      price: 120,
+      images: [
+        "/products/foil_25mtr.png",
+        "/products/foil-25.png"
+      ],
+      category: "food-beverage-containers",
+      description: "Extra-length aluminum foil for all your wrapping needs.",
+      features: [
+        "Length: 25 meters",
+        "Material: Food-grade aluminum",
+        "Use: Suitable for practical and versatile kitchen use",
+        "Convenience: Easy-to-cut but strong enough to hold"
+      ],
+      brand: "Jain-Ex",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Perfect for my kitchen, love the extra length!"
+        },
+        {
+          rating: 2,
+          comment: "Good quality foil, but a bit pricey."
+        }
+      ]
+    },
+    {
+      id: "f-014",
+      name: "Milky Container 250ml",
+      price: 160,
+      images: [
+        "/products/mily_containers.png",
+        "/products/mily_containers.png"
+      ],
+      category: "food-beverage-containers",
+      description: "Durable plastic takeaway container, perfect for food service.",
+      features: [
+        "Size: 250ml",
+        "Pieces: 50 per pack",
+        "Material: BPA-free plastic",
+        "Use: Suitable for hot and cold food",
+        "Ideal for: Takeout, deliveries, and meal prep"
+      ],
+      brand: "Paras",
+      reviews: [
+         {
+          rating: 5,
+          comment: "Perfect for my kitchen, love the extra length!"
+        },
+        {
+          rating: 4,
+          comment: "Good quality foil, but a bit pricey."
+        }
+      ]
+    },
+    {
+      id: "f-015",
+      name: "Milky Container 500ml",
+      price: 230,
+      images: [
+        "/products/milk_container_250ml.png",
+        "/products/milky_container_250ml.png"
+      ],
+      category: "food-beverage-containers",
+      description: "Durable plastic takeaway container, perfect for food service.",
+      features: [
+        "Size: 500ml and also available in different sizes :- 750ml , 1000ml .",
+        "Pieces: 50 per pack",
+        "Material: BPA-free plastic",
+        "Use: Suitable for hot and cold food",
+        "Ideal for: Takeout, deliveries, and meal prep"
+      ],
+      brand: "Paras",
+      reviews: [
+         {
+          rating: 5,
+          comment: "Perfect for my kitchen, love the extra length!"
+        },
+        {
+          rating: 4,
+          comment: "Good quality foil, but a bit pricey."
+        }
+      ]
     }
+
   ],
-  
-  laptops: [
+
+  partyItems: [
     {
-      id: "lp-001",
-      name: "UltraBook Pro X",
-      price: 124999,
-      image: "/products/laptop.jpg",
-      category: "laptops",
+      id: "pi-001",
+      name: "Happy Birthday Foil Balloon(Gold)",
+      price: 90,
+      images: [
+        "/products/HB-gold.jpg",
+        "/products/Happy-Birthday.jpg",
+      ],
+      category: "party-items",
       badge: "Premium",
-      description: "Experience extraordinary performance with the UltraBook Pro X. This premium laptop features a stunning 4K display, powerful processor, and all-day battery life.",
+      description: "Celebrate in style with our dazzling Happy Birthday Foil Balloon – the perfect centerpiece for any birthday bash!.",
       features: [
-        "15.6-inch 4K OLED Display",
-        "Latest Gen i9 Processor",
-        "32GB RAM, 1TB SSD",
-        "NVIDIA RTX 4080 GPU",
-        "18-hour Battery Life"
+        "Material: Premium foil",
+        "Size: 16 inches",
+        "Design: Elegant gold lettering on a white background",
+        "Inflation: Air or helium compatible",
+        "Reuseable: Durable and long-lasting",
       ],
-      brand: "TechPro",
-      model: "UBP-X2024",
-      warranty: "3 Years"
+      warranty: "7days after installing",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Absolutely love this laptop! Worth every penny.",
+          reviews: "David"
+        },
+        {
+          rating: 4,
+          comment: "Great performance, but a bit heavy.",
+          reviews: "Emma"
+        }
+      ]
     },
     {
-      id: "lp-002",
-      name: "Developer Workstation",
-      price: 139999,
-      image: "/products/laptops.jpg",
-      category: "laptops",
-      description: "Built for software developers and content creators, the Developer Workstation provides uncompromising performance for the most demanding tasks.",
-      features: [
-        "17-inch 4K Display with 100% Adobe RGB",
-        "Ryzen 9 Processor",
-        "64GB RAM, 2TB SSD",
-        "NVIDIA RTX 4090 GPU",
-        "Multiple Thunderbolt Ports"
+      id: "pi-002",
+      name: "HB Foil Balloon (Silver)",
+      price: 90,
+      images: [
+        "/products/HB-silver.jpg",
+        "/products/hb.jpg",
       ],
-      brand: "DevTech",
-      model: "DW-9000",
-      warranty: "3 Years"
+      category: "party-items",
+      badge: "new",
+      description: "Celebrate in style with our dazzling Happy Birthday Foil Balloon – the perfect centerpiece for any birthday bash !",
+      features: [
+        "Material: Premium foil",
+        "Size: 16 inches",
+        "Design: Elegant silver lettering on a white background",
+        "Inflation: Air or helium compatible",
+        "Reuseable: Durable and long-lasting",
+      ],
+      warranty: "7days after installing",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Perfect for my development needs!"
+        }
+      ]
     },
     {
-      id: "lp-003",
-      name: "Thin & Light Traveler",
-      price: 79999,
-      image: "/products/laptop.jpg",
-      category: "laptops",
-      badge: "Lightweight",
-      description: "Perfect for professionals on the go, the Thin & Light Traveler weighs under 1kg while providing excellent performance and connectivity.",
-      features: [
-        "13.5-inch QHD+ Display",
-        "Intel Core i7 Processor",
-        "16GB RAM, 512GB SSD",
-        "Intel Iris Xe Graphics",
-        "Weighs only 980g"
-      ],
-      brand: "MobileTech",
-      model: "TLT-2024",
-      warranty: "2 Years"
-    },
-    {
-      id: "lp-004",
-      name: "Gaming Beast RTX",
-      price: 159999,
-      image: "/products/laptops.jpg",
-      category: "laptops",
-      badge: "Gaming",
-      description: "Dominate every game with the Gaming Beast RTX. This high-performance gaming laptop features advanced cooling, RGB lighting, and top-tier graphics.",
-      features: [
-        "17.3-inch 240Hz Display",
-        "Intel Core i9-HX Processor",
-        "32GB DDR5 RAM, 2TB NVMe SSD",
-        "NVIDIA RTX 4090 16GB GPU",
-        "Advanced Thermal Design"
-      ],
-      brand: "GameTech",
-      model: "GB-RTX-Elite",
-      warranty: "2 Years"
-    },
-    {
-      id: "lp-005",
-      name: "Budget Student Notebook",
-      price: 42999,
-      image: "/products/laptop.jpg",
-      category: "laptops",
-      badge: "Best Value",
-      description: "Affordability meets functionality in the Budget Student Notebook, perfect for everyday tasks, online learning, and basic productivity.",
-      features: [
-        "15.6-inch Full HD Display",
-        "AMD Ryzen 5 Processor",
-        "8GB RAM, 512GB SSD",
-        "AMD Radeon Graphics",
-        "10-hour Battery Life"
-      ],
-      brand: "EduTech",
-      model: "BSN-500",
-      warranty: "1 Year"
-    },
-    {
-      id: "lp-006",
-      name: "Business Executive Elite",
-      price: 94999,
-      image: "/products/laptops.jpg",
-      category: "laptops",
-      description: "Designed for business professionals, the Business Executive Elite offers advanced security features, premium build quality, and reliable performance.",
-      features: [
-        "14-inch QHD+ Anti-glare Display",
-        "Intel vPro Platform",
-        "16GB RAM, 1TB SSD",
-        "Windows 11 Pro",
-        "Fingerprint Reader and TPM 2.0"
-      ],
-      brand: "BizTech",
-      model: "BEE-2024",
-      warranty: "3 Years"
-    },
-    {
-      id: "lp-007",
-      name: "Convertible 2-in-1 Touch",
-      price: 85999,
-      image: "/products/laptop.jpg",
-      category: "laptops",
-      badge: "Versatile",
-      description: "Get the best of both worlds with the Convertible 2-in-1 Touch. Use it as a laptop or tablet with its versatile 360-degree hinge design.",
-      features: [
-        "14-inch Touchscreen Display",
-        "Intel Core i7 Processor",
-        "16GB RAM, 512GB SSD",
-        "360-degree Hinge",
-        "Stylus Support"
-      ],
-      brand: "FlexTech",
-      model: "C2in1-Pro",
-      warranty: "2 Years"
-    },
-    {
-      id: "lp-008",
-      name: "Creative Studio Pro",
-      price: 129999,
-      image: "/products/laptops.jpg",
-      category: "laptops",
-      description: "Built for creative professionals, the Creative Studio Pro offers color-accurate display, powerful graphics, and optimized performance for design applications.",
-      features: [
-        "16-inch 4K DCI-P3 Display",
-        "Intel Core i9 Processor",
-        "32GB RAM, 2TB SSD",
-        "NVIDIA RTX A5000 Graphics",
-        "Calibrated for Adobe Creative Suite"
-      ],
-      brand: "CreativeTech",
-      model: "CSP-X",
-      warranty: "3 Years"
-    },
-    {
-      id: "lp-009",
-      name: "Rugged Field Pro",
-      price: 109999,
-      image: "/products/laptop.jpg",
-      category: "laptops",
-      badge: "Durable",
-      description: "Built to withstand the harshest environments, the Rugged Field Pro meets military-grade durability standards while delivering reliable performance.",
-      features: [
-        "14-inch Sunlight-readable Display",
-        "Intel Core i5 Processor",
-        "16GB RAM, 1TB SSD",
-        "Military-grade Drop Protection",
-        "Water and Dust Resistant (IP65)"
-      ],
-      brand: "DuraTech",
-      model: "RFP-Military",
-      warranty: "5 Years"
-    },
-    {
-      id: "lp-010",
-      name: "AI Developer Edition",
-      price: 169999,
-      image: "/products/laptops.jpg",
-      category: "laptops",
-      badge: "Specialized",
-      description: "Specifically optimized for AI development and machine learning tasks, the AI Developer Edition features specialized hardware accelerators and software optimizations.",
-      features: [
-        "16-inch 4K Display",
-        "Intel Core i9 with Neural Engine",
-        "64GB RAM, 4TB SSD",
-        "NVIDIA RTX 4090 with Tensor Cores",
-        "Pre-installed AI Development Tools"
-      ],
-      brand: "AITech",
-      model: "AIDE-2024",
-      warranty: "3 Years"
-    }
+  "id": "pi-003",
+  "name": "Anar Candles",
+  "price": 50,
+  "images": [
+    "/products/anar.jpeg",
+    "/products/anar1.jpeg",
+    "/products/anar-c.jpeg"
   ],
-  
-  smartwatches: [
+  "category": "party-items",
+  "badge": "Best Seller",
+  "description": "Add a sparkle to your birthday cake with our vibrant Colorful Birthday Candles. Perfect for all ages!",
+  "features": [
+    "Material: Wax",
+    "Size: 6 inches",
+    "Colors: Assorted vibrant colors including red, blue, green, yellow, and silver",
+    "Design: Glittery finish for enhanced visual appeal",
+    "Quantity: Pack of 6 candles"
+  ],
+  "warranty": "N/A",
+  "reviews": [
     {
-      id: "sw-001",
-      name: "Active Pro 5",
-      price: 34999,
-      image: "/products/smartwatch.jpg",
-      category: "smartwatches",
+      "rating": 5,
+      "comment": "These candles made my daughter's birthday cake extra special!",
+      "reviews": "Sophia"
+    },
+    {
+      "rating": 4,
+      "comment": "Good quality, wish they had more colors.",
+      "reviews": "Liam"
+    }
+  ]
+},
+{
+  "id": "pi-004",
+  "name": "Decorative Foil Curtains",
+  "price": 40,
+  "images": [
+    "/products/gold.jpeg",
+    "/products/gold-c.jpeg"
+  ],
+  "category": "party-items",
+  "description": "Enhance your celebration with these shimmering Decorative Foil Curtains. Ideal for events and parties.",
+  "features": [
+    "Material: High-quality foil",
+    "Size: 2 panels 3ft x 8ft each",
+    "Color: Bright gold",
+    "Design: Vertical shiny strips",
+    "Quantity: 2 panels per pack"
+  ],
+  "warranty": "N/A",
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "These curtains transformed our event space beautifully!",
+      "userName": "Mia"
+    },
+    {
+      "rating": 4,
+      "comment": "Very pretty! Just be careful when hanging them.",
+      "userName": "Noah"
+    }
+  ]
+},
+{
+  "id": "pi-005",
+  "name": "Decorative Foil Curtains",
+  "price": 40,
+  "images": [
+    "/products/silver.jpeg",
+    "/products/gold-c.jpeg"
+  ],
+  "category": "party-items",
+  "description": "Enhance your celebration with these shimmering Decorative Foil Curtains. Ideal for events and parties.",
+  "features": [
+    "Material: High-quality foil",
+    "Size: 2 panels 3ft x 8ft each",
+    "Color: Bright Silver",
+    "Design: Vertical shiny strips",
+    "Quantity: 2 panels per pack"
+  ],
+  "warranty": "N/A",
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "These curtains transformed our event space beautifully!",
+      "userName": "Mia"
+    },
+    {
+      "rating": 4,
+      "comment": "Very pretty! Just be careful when hanging them.",
+      "userName": "Noah"
+    }
+  ]
+},
+{
+  "id": "pi-006",
+  "name": "Decorative Foil Curtains",
+  "price": 40,
+  "images": [
+    "/products/pink.jpeg",
+    "/products/gold-c.jpeg"
+  ],
+  "category": "party-items",
+  "description": "Enhance your celebration with these shimmering Decorative Foil Curtains. Ideal for events and parties.",
+  "features": [
+    "Material: High-quality foil",
+    "Size: 2 panels 3ft x 8ft each",
+    "Color: Bright Pink",
+    "Design: Vertical shiny strips",
+    "Quantity: 2 panels per pack"
+  ],
+  "warranty": "N/A",
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "These curtains transformed our event space beautifully!",
+      "userName": "Mia"
+    },
+    {
+      "rating": 3,
+      "comment": "Very pretty! Just be careful when hanging them.",
+      "userName": "Noah"
+    }
+  ]
+}
+
+
+  ],
+
+  paperPrintingItems: [
+    {
+      id: "pp-001",
+      name: "Shagun Box",
+      price: 150,
+      images: [
+        "/products/shagun2.png",
+        "/products/shagun box.png",
+      ],
+      category: "paper-printing-items",
+      description: "The Shagun Box is a beautifully crafted box box designed to hold and present gifts for special occasions. Made from high-quality materials, it features intricate designs and a luxurious finish, making it perfect for weddings, festivals, or any celebratory event.",
+      features: [
+        "For giving a bundle of 100 currency notes",
+        "Material: High-quality board and paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
+    },
+    {
+      id: "pp-002",
+      name: "Shagun Box",
+      price: 150,
+      images: [
+        "/products/notes.png",
+        "/products/notes1.png",
+      ],
+      category: "paper-printing-items",
       badge: "New",
-      description: "Elevate your fitness journey with the Active Pro 5. This advanced smartwatch offers comprehensive health tracking, GPS, and up to 7 days of battery life.",
+      description: "The Shagun Box is a beautifully crafted box box designed to hold and present gifts for special occasions. Made from high-quality materials, it features intricate designs and a luxurious finish, making it perfect for weddings, festivals, or any celebratory event.",
       features: [
-        "1.4-inch AMOLED Display",
-        "Heart Rate & ECG Monitoring",
-        "GPS with Navigation",
-        "100+ Workout Modes",
-        "Water Resistant to 50m"
+        "For giving a bundle of 100 currency notes",
+        "Material: High-quality board and paper with a glossy finish",
       ],
-      brand: "FitTech",
-      model: "AP5-2024",
-      warranty: "2 Years"
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-002",
-      name: "Business Time Elite",
-      price: 42999,
-      image: "/products/smartwatches.jpg",
-      category: "smartwatches",
-      description: "Designed for professionals, the Business Time Elite combines premium materials with smart features to keep you connected and productive.",
-      features: [
-        "1.5-inch Sapphire Crystal Display",
-        "4G Connectivity",
-        "Email and Calendar Integration",
-        "Voice Assistant",
-        "Premium Stainless Steel Design"
+      id: "pp-003",
+      name: "Shagun Card (Pack of 10)",
+      price: 120,
+      images: [
+        "/products/card1.png",
+        "/products/card1.png",
+
       ],
-      brand: "ExecTech",
-      model: "BTE-100",
-      warranty: "2 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 3,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-003",
-      name: "Health Monitor Plus",
-      price: 29999,
-      image: "/products/smartwatch.jpg",
-      category: "smartwatches",
-      badge: "Health",
-      description: "The most advanced health companion, Health Monitor Plus offers comprehensive vitals tracking, sleep analysis, and personalized insights.",
-      features: [
-        "1.3-inch OLED Display",
-        "Blood Oxygen Monitoring",
-        "Sleep Analysis with Stages",
-        "Stress Tracking",
-        "Irregular Heart Rate Alerts"
+      id: "pp-004",
+      name: "Shagun Card (Three fold)",
+      price: 120,
+      images: [
+        "/products/card2.png",
+        "/products/card2.png",
       ],
-      brand: "MediTech",
-      model: "HMP-2024",
-      warranty: "2 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        "Pack of 10pcs",
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-004",
-      name: "Extreme Sports GPS",
-      price: 45999,
-      image: "/products/smartwatches.jpg",
-      category: "smartwatches",
-      badge: "Rugged",
-      description: "Built for adventure, the Extreme Sports GPS watch withstands harsh conditions while providing precise tracking for outdoor activities.",
-      features: [
-        "1.4-inch Transflective Display",
-        "Multi-band GPS",
-        "Altimeter, Barometer, Compass",
-        "Topographic Maps",
-        "Military-grade Durability"
+      id: "pp-005",
+      name: "Shagun Card (Pack of 25)",
+      price: 90,
+      images: [
+        "/products/card3.png",
+        "/products/card3.png",
+
       ],
-      brand: "AdventureTech",
-      model: "ESG-X",
-      warranty: "3 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a Matt finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-005",
-      name: "Minimalist Classic",
-      price: 24999,
-      image: "/products/smartwatch.jpg",
-      category: "smartwatches",
-      description: "The Minimalist Classic combines traditional watch aesthetics with essential smart features for those who prefer a more subtle approach.",
-      features: [
-        "1.2-inch Circular Display",
-        "Basic Health Tracking",
-        "Notification Support",
-        "2-week Battery Life",
-        "Premium Leather Strap"
+      id: "pp-006",
+      name: "Shagun Card (Pack of 25)",
+      price: 90,
+      images: [
+        "/products/card4.png",
+        "/products/card4.png",
+
       ],
-      brand: "ClassicTech",
-      model: "MC-200",
-      warranty: "2 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a Matt finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-006",
-      name: "Kids Guardian",
-      price: 12999,
-      image: "/products/smartwatches.jpg",
-      category: "smartwatches",
-      badge: "For Kids",
-      description: "Designed for children, the Kids Guardian offers location tracking, communication features, and educational apps in a durable, colorful design.",
-      features: [
-        "1.0-inch Touch Display",
-        "GPS Tracking with Geofencing",
-        "Two-way Calling",
-        "SOS Button",
-        "Educational Games"
+      id: "pp-007",
+      name: "Shagun Card (Pack of 25)",
+      price: 90,
+      images: [
+        "/products/card5.jpg",
+        "/products/card5.jpg",
+
       ],
-      brand: "KidTech",
-      model: "KG-Junior",
-      warranty: "1 Year"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 3,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-007",
-      name: "Fashion Forward",
-      price: 36999,
-      image: "/products/smartwatch.jpg",
-      category: "smartwatches",
-      badge: "Stylish",
-      description: "The Fashion Forward smart watch blends high fashion with technology, featuring customizable designer straps and exclusive watch faces.",
-      features: [
-        "1.3-inch Circular AMOLED Display",
-        "Designer Straps",
-        "Exclusive Watch Faces",
-        "Basic Health Tracking",
-        "Social Media Integration"
+      id: "pp-008",
+      name: "Shagun Card (Pack of 25)",
+      price: 70,
+      images: [
+        "/products/card6.jpg",
+        "/products/card6.jpg",
       ],
-      brand: "FashionTech",
-      model: "FF-Luxe",
-      warranty: "2 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-008",
-      name: "Senior Assist",
-      price: 19999,
-      image: "/products/smartwatches.jpg",
-      category: "smartwatches",
-      description: "Designed for seniors, the Senior Assist offers easy-to-use health monitoring, fall detection, and emergency assistance features.",
-      features: [
-        "1.4-inch High-contrast Display",
-        "Fall Detection",
-        "Medication Reminders",
-        "Emergency SOS",
-        "Simplified Interface"
+      id: "pp-009",
+      name: "Shagun Card (Pack of 25)",
+      price: 70,
+      images: [
+        "/products/card7.jpg",
+        "/products/card10.jpg",
+
       ],
-      brand: "CareTech",
-      model: "SA-2024",
-      warranty: "2 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
     {
-      id: "sw-009",
-      name: "Dive Master 200",
-      price: 49999,
-      image: "/products/smartwatch.jpg",
-      category: "smartwatches",
-      badge: "Specialized",
-      description: "Purpose-built for divers, the Dive Master 200 offers depth tracking, underwater heart rate monitoring, and dive log capabilities.",
-      features: [
-        "1.4-inch Sunlight-visible Display",
-        "Water Resistant to 200m",
-        "Dive Computer Features",
-        "Underwater Heart Rate",
-        "Automatic Dive Detection"
+      id: "pp-0010",
+      name: "Shagun Card (Pack of 25)",
+      price: 70,
+      images: [
+        "/products/card8.png",
+        "/products/card8.png",
       ],
-      brand: "OceanTech",
-      model: "DM-200",
-      warranty: "2 Years"
+      category: "paper-printing-items",
+      description: " The Shagun Card is a beautifully designed greeting card that is perfect for gifting on special occasions. Made from high-quality paper, it features intricate designs and a luxurious finish, making it ideal for weddings, festivals, or any celebratory event.",
+      features: [
+        "Small size card",
+        "Colour: White",
+        " Give shagun in the festival season like Raksha Bandhan, Diwali, Marriage,etc",
+        "Material: High-quality paper with a glossy finish",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Amazing box"
+        },
+        {
+          rating: 4,
+          comment: " Perfect for gifting!"
+        }
+      ]
     },
-    {
-      id: "sw-010",
-      name: "Budget Fitness Tracker",
-      price: 8999,
-      image: "/products/smartwatches.jpg",
-      category: "smartwatches",
-      badge: "Best Value",
-      description: "Affordable fitness tracking that doesn't compromise on essentials, the Budget Fitness Tracker offers great value for health-conscious users.",
-      features: [
-        "0.96-inch OLED Display",
-        "Heart Rate Monitoring",
-        "Sleep Tracking",
-        "14-day Battery Life",
-        "Water Resistant to 50m"
-      ],
-      brand: "ValueTech",
-      model: "BFT-100",
-      warranty: "1 Year"
-    }
+
   ],
-  
-  luxurywatches: [
+
+  cleaningHygieneProducts: [
     {
-      id: "lw-001",
-      name: "Grande Complication",
-      price: 599999,
-      image: "/products/chronograph.jpg",
-      category: "luxurywatches",
+      id: "hp-001",
+      name: "Kitchen Towel (Non-Woven)",
+      price: 110,
+      images: [
+        "/products/bamboo_kitchen-towel.png",
+        "/products/green.jpg",
+        "/products/blue.jpg",
+        "/products/yellow.jpg",
+        "/products/pink.jpg"
+      ],
+      category: "cleaning-hygiene-products",
       badge: "Premium",
-      description: "A masterpiece of watchmaking, the Grande Complication features hand-crafted movements, multiple complications, and exquisite finishing.",
+      description: "Kitchen towels are essential for maintaining a clean and hygienic kitchen. Made from high-quality non-woven fabric, these towels are designed to absorb spills, wipe surfaces, and dry hands effectively. They are durable, reusable, and eco-friendly, making them a perfect choice for everyday kitchen use.",
       features: [
-        "42mm 18K Gold Case",
-        "Perpetual Calendar",
-        "Minute Repeater",
-        "Tourbillon Movement",
-        "Alligator Leather Strap"
+        "High-absorbency non-woven fabric",
+        "Soft and gentle on surfaces",
+        "Machine washable and reusable",
+        "Available in multiple colors",
+        "Ideal for drying hands, wiping spills, and cleaning surfaces"
       ],
-      brand: "Swiss Precision",
-      model: "GC-Royal",
-      warranty: "Lifetime"
+      brand: "Bamboo",
+      warranty: "Reusable",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Masterpiece, highly recommended!"
+        },
+        {
+          rating: 5,
+          comment: "A true work of art!"
+        }
+      ]
     },
     {
-      id: "lw-002",
-      name: "Navigator Chronograph",
-      price: 189999,
-      image: "/products/luxurywatches.jpg",
-      category: "luxurywatches",
-      description: "Inspired by aviation, the Navigator Chronograph combines precise timekeeping with practical functionality in a sophisticated package.",
-      features: [
-        "45mm Stainless Steel Case",
-        "Automatic Movement",
-        "Chronograph Function",
-        "Rotating Bezel",
-        "Sapphire Crystal"
+      id: "hp-002",
+      name: "Toby Facial Wipes",
+      price: 40,
+      images: [
+        "/products/toby (2).png",
+        "/products/lemon.jpg",
+        "/products/aloe.jpg",
+        "/products/lav.jpg",
+        "/products/rose.jpg"
       ],
-      brand: "ChronoMaster",
-      model: "NC-Pilot",
-      warranty: "10 Years"
+      category: "cleaning-hygiene-products",
+      description: "Toby Facial Wipes are designed to cleanse and refresh your skin on the go. Made with natural ingredients, these wipes effectively remove dirt, makeup, and impurities while leaving your skin feeling soft and rejuvenated. Perfect for travel, gym, or daily use.",
+      features: [
+        "Net Quantity : 25pcs",
+        "Gentle and effective cleansing",
+        "Infused with natural ingredients",
+        "Alcohol-free and hypoallergenic",
+        "Convenient travel-size packaging",
+        "Suitable for all skin types",
+      ],
+      brand: "Toby",
+      warranty: "Date mention on Pack",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Masterpiece, highly recommended!"
+        },
+        {
+          rating: 5,
+          comment: "A true work of art!"
+        }
+      ]
     },
     {
-      id: "lw-003",
-      name: "Heritage Automatic",
-      price: 259999,
-      image: "/products/chronograph.jpg",
-      category: "luxurywatches",
-      badge: "Classic",
-      description: "The Heritage Automatic draws inspiration from vintage designs while incorporating modern watchmaking technology for reliability and precision.",
-      features: [
-        "40mm Rose Gold Case",
-        "In-house Automatic Movement",
-        "Vintage-inspired Dial",
-        "Exhibition Caseback",
-        "Hand-stitched Leather Strap"
+      id: "hp-003",
+      name: "Toby Baby Wipes",
+      price: 55,
+      images: [
+        "/products/babywipes.png",
+        "/products/baby.png",
+        "/products/baby.jpg",
       ],
-      brand: "TimeCraft",
-      model: "HA-1950",
-      warranty: "5 Years"
+      category: "cleaning-hygiene-products",
+      description: "Toby Baby Wipes are specially formulated to gently cleanse and soothe your baby's delicate skin. Made with natural ingredients, these wipes are soft, hypoallergenic, and free from harsh chemicals, making them perfect for diaper changes, messy hands, and face cleaning.",
+      features: [
+        "0+ Months and above",
+        "Net Quantity: 72 wipes",
+        "Type: Baby Cleansing Wipes",
+        "Ideal For: Babys",
+        "Scented Wipes",
+      ],
+      brand: "Toby",
+      warranty: "Date mention on Pack",
+      reviews: [
+        {
+          rating: 4,
+          comment: "A true work of art!"
+        }
+      ]
     },
     {
-      id: "lw-004",
-      name: "Diver Professional 300M",
-      price: 159999,
-      image: "/products/luxurywatches.jpg",
-      category: "luxurywatches",
-      badge: "Professional",
-      description: "A professional diving instrument, the Diver Professional 300M offers exceptional water resistance, legibility, and reliability under pressure.",
-      features: [
-        "44mm Titanium Case",
-        "300M Water Resistance",
-        "Helium Escape Valve",
-        "Luminous Dial and Hands",
-        "Ceramic Rotating Bezel"
+      id: "hp-004",
+      name: "Latex Gloves (50Pcs)",
+      price: 160,
+      images: [
+        "/products/dr_care1.png",
+        "/products/dr_care.png",
+
       ],
-      brand: "OceanMaster",
-      model: "DP-300",
-      warranty: "5 Years"
+      category: "cleaning-hygiene-products",
+      description: "Dr. Care Latex latexmination gloves are designed for maximum protection and comfort. Made from high-quality latex, these gloves provide excellent barrier protection against contaminants while ensuring a snug fit. Ideal for medical, cleaning, and food handling tasks.",
+      features: [
+        "Net Quantity : 50pcs",
+        "Size : large",
+        "Color: Black",
+        "Elasticity, comfort, and strong barrier protection against bacteria and viruses.",
+        "Latex gloves are ideal for medical, cleaning, and food handling tasks.",
+      ],
+      brand: "Dr Care",
+      warranty: "Date mention on Pack",
+      reviews: [
+        {
+          rating: 5,
+          comment: "A true work of art!"
+        }
+      ]
     },
     {
-      id: "lw-005",
-      name: "Skeleton Art Deco",
-      price: 329999,
-      image: "/products/chronograph.jpg",
-      category: "luxurywatches",
-      description: "A blend of art and engineering, the Skeleton Art Deco reveals the intricate movement through a beautifully decorated open-worked dial.",
-      features: [
-        "39mm White Gold Case",
-        "Hand-wound Skeleton Movement",
-        "Art Deco Design Elements",
-        "Guilloché Decoration",
-        "Crocodile Leather Strap"
+      id: "hp-005",
+      name: "Pocket Tissues (10pkt)",
+      price: 60,
+      images: [
+        "/products/pocket_tissue.png",
+        "/products/pocket_tissue1.png",
       ],
-      brand: "ArtisanTime",
-      model: "SAD-Elite",
-      warranty: "10 Years"
+      category: "cleaning-hygiene-products",
+      description: "Pocket tissues are essential for maintaining hygiene on the go. These soft, absorbent tissues are perfect for wiping hands, faces, and surfaces. Compact and convenient, they fit easily in pockets or bags, making them ideal for travel, work, or everyday use.",
+      features: [
+        "Net Quantity in 1pkt : 10pcs",
+        "Set of 10pkts",
+        "Super soft and hygiene",
+      ],
+      brand: "Daisy Blossom",
+      warranty: "Date mention on Pack",
+      reviews: [
+        {
+          rating: 3,
+          comment: "A true work of art!"
+        }
+      ]
     },
     {
-      id: "lw-006",
-      name: "Annual Calendar Moonphase",
-      price: 399999,
-      image: "/products/luxurywatches.jpg",
-      category: "luxurywatches",
-      badge: "Complicated",
-      description: "The Annual Calendar Moonphase combines practical complications with elegant design, requiring adjustment only once per year.",
-      features: [
-        "41mm Platinum Case",
-        "Annual Calendar Function",
-        "Moonphase Display",
-        "Power Reserve Indicator",
-        "Hand-finished Movement"
+      id: "hp-006",
+      name: "V-PAC Splash Dinner Napkins",
+      price: 90,
+      images: [
+        "/products/splash tissue.png",
+        "/products/splash tissue.png"
       ],
-      brand: "CalendarCraft",
-      model: "ACM-Celestial",
-      warranty: "10 Years"
+      category: "cleaning-hygiene-products",
+      description: "Soft premium quality quilted dinner napkins, perfect for any dining setting.",
+      features: [
+        "Size: 40cm x 40cm",
+        "Pack of 50 pieces",
+        "3 Ply for maximum durability",
+        "Ideal for both home and restaurant use",
+        "Soft and absorbent material"
+      ],
+      brand: "V-PAC",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Very soft and durable!"
+        }
+      ]
     },
     {
-      id: "lw-007",
-      name: "Sports Elegance Titanium",
-      price: 179999,
-      image: "/products/chronograph.jpg",
-      category: "luxurywatches",
-      badge: "Lightweight",
-      description: "The Sports Elegance Titanium combines athletic functionality with refined elegance in an ultra-lightweight package.",
-      features: [
-        "42mm Grade 5 Titanium Case",
-        "Integrated Bracelet Design",
-        "Anti-magnetic Movement",
-        "Super-LumiNova Indications",
-        "80-hour Power Reserve"
+      id: "hp-007",
+      name: "V-PAC Printing Napkin(Butterfly)",
+      price: 70,
+      images: [
+        "/products/vpac1.png",
+        "/products/vpac.png"
+
       ],
-      brand: "SportoLuxe",
-      model: "SET-Pro",
-      warranty: "5 Years"
+      category: "cleaning-hygiene-products",
+      description: "Premium quality napkins made from 100% virgin pulp for a clean feel.",
+      features: [
+        "Size: 30cm x 30cm",
+        "Pack of 50 pieces",
+        "3 Ply for extra absorbency",
+        "Feather touch for utmost comfort",
+        "Perfect for everyday use"
+      ],
+      brand: "V-PAC",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Great for parties!"
+        }
+      ]
     },
     {
-      id: "lw-008",
-      name: "Ladies Diamond Pavé",
-      price: 459999,
-      image: "/products/luxurywatches.jpg",
-      category: "luxurywatches",
-      description: "A statement piece of jewelry and timekeeping, the Ladies Diamond Pavé features hundreds of hand-set diamonds in a brilliant display.",
-      features: [
-        "36mm White Gold Case",
-        "Full Diamond Pavé Setting",
-        "Mother of Pearl Dial",
-        "Quartz Movement",
-        "Satin Strap with Diamond Buckle"
+      id: "hp-008",
+      name: "V-PAC Printed Napkin(Parrot)",
+      price: 70,
+      images: [
+        "/products/vpac2.png",
+        "/products/vpac.png"
+
       ],
-      brand: "DiamondTime",
-      model: "LDP-Brilliance",
-      warranty: "5 Years"
+      category: "cleaning-hygiene-products",
+      description: "Colorful printed napkins, perfect for festive occasions.",
+      features: [
+        "Size: 30cm x 30cm",
+        "Pack of 50 pieces",
+        "Durable and eye-catching design",
+        "Ideal for parties and events"
+      ],
+      brand: "V-PAC",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Lovely design and good quality!"
+        }
+      ]
     },
     {
-      id: "lw-009",
-      name: "Travel Time Dual Timezone",
-      price: 229999,
-      image: "/products/chronograph.jpg",
-      category: "luxurywatches",
-      badge: "Travel",
-      description: "Perfect for frequent travelers, the Travel Time Dual Timezone allows easy tracking of two time zones with an intuitive user interface.",
-      features: [
-        "43mm Stainless Steel Case",
-        "Dual Timezone Function",
-        "Date Display",
-        "Easy-adjust Pushers",
-        "Integrated Bracelet"
+      id: "hp-009",
+      name: "V-PAC Printed Napkin(Hankey)",
+      price: 70,
+      images: [
+        "/products/vpac3.png",
+        "/products/vpac.png"
+
       ],
-      brand: "GlobeTrotter",
-      model: "TT-Voyager",
-      warranty: "5 Years"
+      category: "cleaning-hygiene-products",
+      description: "Decorative napkins ideal for enhancing table settings.",
+      features: [
+         "Size: 30cm x 30cm",
+        "Pack of 50 pieces",
+        "Beautiful designs",
+        "Perfect for weddings and celebrations"
+      ],
+      brand: "V-PAC",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Very pretty and high quality!"
+        }
+      ]
     },
     {
-      id: "lw-010",
-      name: "Ultra-thin Dress Watch",
-      price: 289999,
-      image: "/products/luxurywatches.jpg",
-      category: "luxurywatches",
-      badge: "Elegant",
-      description: "The epitome of elegance, the Ultra-thin Dress Watch slips discreetly under a shirt cuff while providing accurate timekeeping.",
-      features: [
-        "38mm Rose Gold Case",
-        "Only 5.9mm Thick",
-        "Minimalist Dial Design",
-        "Hand-wound Movement",
-        "Genuine Alligator Strap"
+      id: "hp-010",
+      name: "Biodegradable 5CP Tray",
+      price: 199,
+      images: [
+        "/products/5cp.png",
+        "/products/Bio_5cp.png",
+        "/products/tray.jpeg"
       ],
-      brand: "SlimCraft",
-      model: "UT-Elegance",
-      warranty: "10 Years"
-    }
+      category: "cleaning-hygiene-products",
+      description: " ",
+      features: [
+        "Pack of 25pcs",
+        "Microwave Safe",
+        "Water and Oil Resistance",
+        "Eco-friendly",
+        "Food Grade Material used for manufacturing",
+        "Perfect for formal events",
+        "High absorbency"
+      ],
+      brand: "Signature Fresh",
+      reviews: [
+        {
+          rating: 5,
+          comment: "Fantastic quality, used for our wedding!"
+        }
+      ]
+    },
+
+    {
+      id: "hp-011",
+      name: "Wooden Ear buds",
+      price: 160,
+      images: [
+        "/products/ear (3).png",
+        "/products/ear.png"
+      ],
+      category: "cleaning-hygiene-products",
+      description: "These Ear buds are made from high-quality wood, providing a natural and eco-friendly alternative to wooden cotton swabs. They are perfect for personal hygiene, cleaning delicate areas, and applying or removing makeup. The soft cotton tips ensure gentle and effective use.",
+      features: [
+        "Net Quantity : 100pcs",
+        "Material use: Wood and Cotton",
+      ],
+      brand: "",
+      warranty: "Date mention on Pack",
+      reviews: [
+        {
+          rating: 2,
+          comment: "A true work of art!"
+        }
+      ]
+    },
+ 
+{
+  id: "hp-012",
+  name: "V-PAC Kitchen Towels",
+  price: 60,
+  images: [
+    "/products/kitchen-towel.jpeg",
+    "/products/kitchen-towel.jpeg"
   ],
-  
-  audio: [
+  category: "cleaning-hygiene-products",
+  badge: "Premium",
+  description: "V-PAC Kitchen Towels are designed for superior absorbency and durability, making them perfect for maintaining a clean and hygienic kitchen. Ideal for wiping spills, drying hands, and cleaning surfaces.",
+  features: [
+    "Premium quality paper",
+    "Highly absorbent",
+    "Soft and gentle on surfaces",
+    "Ideal for kitchen and household use",
+    "Convenient roll design for easy dispensing"
+  ],
+  brand: "V-PAC",
+  reviews: [
     {
-      id: "au-001",
-      name: "Premium Wireless Headphones",
-      price: 34999,
-      image: "/products/audio.jpg",
-      category: "audio",
+      rating: 5,
+      comment: "Excellent quality towels, a must-have in the kitchen!"
+    }
+  ]
+},
+  {
+    id: "hp-013",
+    name: "Taj Toothpicks",
+    price: 140,
+    images: [
+      "/products/taj_toothpicks.png",
+      "/products/toothpick.jpg"
+    ],
+    category: "cleaning-hygiene-products",
+    description: "The Hygienic and Clean Way To Guard Decay. Toothpicks packaged for easy access and hygiene.",
+    features: [
+      "Net Quantity: 100 pcs",
+      "Box Contains: 10 Box",
+      "Made from natural wood",
+      "Hygienically packaged",
+      "Ideal for dental hygiene and food presentation"
+    ],
+    brand: "Taj",
+    reviews: [
+      {
+        rating: 5,
+        comment: "Excellent quality!"
+      },
+      {
+        rating: 4,
+        comment: "Convenient packaging!"
+      }
+    ]
+  },
+  
+  {
+    id: "hp-014",
+    name: "Bamboo Toothpicks (2'')",
+    price: 30,
+    images: [
+      "/products/toothpick1.jpeg",
+      "/products/toothpick1.jpeg"
+    ],
+    category: "cleaning-hygiene-products",
+    description: "Purely natural bamboo toothpicks for a sustainable choice.",
+    features: [
+      "Net Quantity: 100 pcs",
+      "100% biodegradable",
+      "Ideal for parties and everyday use"
+    ],
+    reviews: [
+      {
+        rating: 4,
+        comment: "Great for gatherings!"
+      }
+    ]
+  },
+  {
+    id: "hp-015",
+    name: "Bamboo Toothpicks (3'')",
+    price: 50,
+    images: [
+      "/products/toothpick2.jpeg",
+      "/products/toothpick2.jpeg"
+    ],
+    category: "cleaning-hygiene-products",
+    description: "Purely natural bamboo toothpicks for a sustainable choice.",
+    features: [
+      "Net Quantity: 100 pcs",
+      "100% biodegradable",
+      "Ideal for parties and everyday use"
+    ],
+    reviews: [
+      {
+        rating: 5,
+        comment: "Great for gatherings!"
+      }
+    ]
+  },
+  {
+    id: "hp-016",
+    name: "Wooden Forks",
+    price: 60,
+    images: [
+      "/products/fock.png",
+      "/products/wooden-fock.jpeg",
+      "/products/fock1.png"
+    ],
+    category: "cleaning-hygiene-products",
+    description: "Disposable wooden forks, perfect for events and parties.",
+    features: [
+      "Pack of 100 pcs",
+      "Eco-friendly material",
+      "Sturdy design for easy handling"
+    ],
+    reviews: [
+      {
+        rating: 4,
+        comment: "Good quality for the price."
+      }
+    ]
+  },
+  {
+    id: "hp-017",
+    name: "Wooden Spoons",
+    price: 60,
+    images: [
+      "/products/spoon.png",
+      "/products/wooden-sp.jpeg"
+    ],
+    category: "cleaning-hygiene-products",
+    description: "Disposable wooden spoons for various uses.",
+    features: [
+      "Pack of 100 pcs",
+      "Eco-friendly and biodegradable",
+      "Durable for everyday use"
+    ],
+    reviews: [
+      {
+        rating: 5,
+        comment: "Perfect for my parties!"
+      }
+    ]
+  }
+  ],
+
+  fragranceFreshening: [
+    {
+      id: "ff-001",
+      name: "Toby Room Freshner (Lavender)",
+      price: 99,
+      images: [
+        "/products/lavender.jpg",
+        "/products/toby.png",
+      ],
+      category: "fragrance-freshening",
       badge: "Flagship",
-      description: "Experience exceptional sound quality with our Premium Wireless Headphones featuring active noise cancellation and studio-grade audio performance.",
+      description: "Transform your space with the soothing scent of lavender. Toby Room Freshener is designed to create a calming atmosphere, perfect for relaxation and stress relief.",
       features: [
-        "Active Noise Cancellation",
-        "40mm Titanium Drivers",
-        "30-hour Battery Life",
-        "Bluetooth 5.2",
-        "Memory Foam Ear Cushions"
+        "Long-lasting fragrance",
+        "Natural lavender essential oil",
+        "Eco-friendly and non-Toxic",
+        "Volume: 270ml",
       ],
-      brand: "SoundElite",
-      model: "PWH-X1",
-      warranty: "2 Years"
+      brand: "Toby",
+      model: "Tb-Lavender-270",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Great sound quality, but a bit pricey."
+        }
+      ]
     },
     {
-      id: "au-002",
-      name: "True Wireless Earbuds",
-      price: 19999,
-      image: "/products/earbuds.jpg",
-      category: "audio",
-      description: "Compact yet powerful, our True Wireless Earbuds deliver immersive sound in a completely cable-free design.",
-      features: [
-        "10mm Dynamic Drivers",
-        "Active Noise Cancellation",
-        "8-hour Battery (28 with case)",
-        "IPX7 Water Resistance",
-        "Touch Controls"
+      id: "ff-002",
+      name: "Toby Room Freshner (Musk)",
+      price: 99,
+      images: [
+        "/products/musk.jpg",
+        "/products/toby.png",
       ],
-      brand: "AudioPods",
-      model: "TWE-Pro",
-      warranty: "1 Year"
+      category: "fragrance-freshening",
+      description: "Transform your space with the soothing scent of Musk. Toby Room Freshener is designed to create a calming atmosphere, perfect for relaxation and stress relief.",
+      features: [
+        "Long-lasting fragrance",
+        "Eco-friendly and non-Toxic",
+        "Volume: 270ml",
+      ],
+      brand: "Toby",
+      model: "Tb-Lavender-270",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Great sound quality, but a bit pricey."
+        }
+      ]
     },
     {
-      id: "au-003",
-      name: "Audiophile Open-Back Headphones",
-      price: 42999,
-      image: "/products/audio.jpg",
-      category: "audio",
-      badge: "Studio Quality",
-      description: "Designed for audio professionals and enthusiasts, these open-back headphones deliver exceptional sound stage and clarity.",
-      features: [
-        "50mm Planar Magnetic Drivers",
-        "Open-Back Design",
-        "Replaceable Velour Ear Pads",
-        "Detachable Cable",
-        "Wide Frequency Response"
+      id: "ff-003",
+      name: "Toby Room Freshner (Sandal)",
+      price: 99,
+      images: [
+        "/products/sandal.jpg",
+        "/products/toby.png",
       ],
-      brand: "StudioSound",
-      model: "APH-Reference",
-      warranty: "3 Years"
+      category: "fragrance-freshening",
+      description: "Transform your space with the soothing scent of Sandal. Toby Room Freshener is designed to create a calming atmosphere, perfect for relaxation and stress relief.",
+      features: [
+        "Long-lasting fragrance",
+        "Eco-friendly and non-Toxic",
+        "Volume: 270ml",
+      ],
+      brand: "Toby",
+      model: "Tb-Lavender-270",
+      reviews: [
+        {
+          rating: 4.2,
+          comment: "Great sound quality, but a bit pricey."
+        }
+      ]
     },
     {
-      id: "au-004",
-      name: "Waterproof Bluetooth Speaker",
-      price: 12999,
-      image: "/products/earbuds.jpg",
-      category: "audio",
-      badge: "Outdoor",
-      description: "Take your music anywhere with this rugged, waterproof Bluetooth speaker that delivers surprising sound quality in any environment.",
-      features: [
-        "360° Sound Projection",
-        "IPX7 Waterproof Rating",
-        "20-hour Battery Life",
-        "Built-in Microphone",
-        "Floating Design"
+      id: "ff-004",
+      name: "Toby Room Freshner (Aqua)",
+      price: 99,
+      images: [
+        "/products/aqua.jpg",
+        "/products/toby.png",
       ],
-      brand: "OutdoorAudio",
-      model: "WBS-X200",
-      warranty: "2 Years"
+      category: "fragrance-freshening",
+      description: "Transform your space with the soothing scent of lavender. Toby Room Freshener is designed to create a calming atmosphere, perfect for relaxation and stress relief.",
+      features: [
+        "Long-lasting fragrance",
+        "Eco-friendly and non-Toxic",
+        "Volume: 270ml",
+      ],
+      brand: "Toby",
+      model: "Tb-Lavender-270",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Great sound quality, but a bit pricey."
+        }
+      ]
     },
     {
-      id: "au-005",
-      name: "Hi-Fi Streaming Amplifier",
-      price: 89999,
-      image: "/products/audio.jpg",
-      category: "audio",
-      description: "Bring your home audio system into the modern era with this high-fidelity streaming amplifier featuring multiple connectivity options.",
-      features: [
-        "100W per Channel",
-        "Built-in DAC",
-        "Wi-Fi, Bluetooth, Airplay 2",
-        "Multi-room Audio Support",
-        "Phono Input for Turntables"
+      id: "ff-005",
+      name: "Toby Room Freshner (Awesome)",
+      price: 99,
+      images: [
+        "/products/awesome.jpg",
+        "/products/toby.png",
       ],
-      brand: "AudioPhase",
-      model: "HSA-100",
-      warranty: "5 Years"
-    },
-    {
-      id: "au-006",
-      name: "Gaming Headset Pro",
-      price: 17999,
-      image: "/products/earbuds.jpg",
-      category: "audio",
-      badge: "Gaming",
-      description: "Designed for competitive gamers, this headset delivers immersive spatial audio, crystal-clear communication, and all-day comfort.",
+      category: "fragrance-freshening",
+      badge: "Flagship",
+      description: "Transform your space with the soothing scent of lavender. Toby Room Freshener is designed to create a calming atmosphere, perfect for relaxation and stress relief.",
       features: [
-        "7.1 Surround Sound",
-        "Noise-cancelling Microphone",
-        "RGB Lighting",
-        "Memory Foam Ear Cups",
-        "Cross-platform Compatibility"
+        "Long-lasting fragrance",
+        "Natural lavender essential oil",
+        "Eco-friendly and non-Toxic",
+        "Volume: 270ml",
       ],
-      brand: "GameAudio",
-      model: "GHP-Tournament",
-      warranty: "2 Years"
-    },
-    {
-      id: "au-007",
-      name: "Portable Hi-Res Music Player",
-      price: 29999,
-      image: "/products/audio.jpg",
-      category: "audio",
-      badge: "Audiophile",
-      description: "Experience your music collection in its full glory with this portable high-resolution digital audio player.",
-      features: [
-        "Dual ES9218P DAC",
-        "256GB Storage + MicroSD",
-        "3.5-inch HD Touchscreen",
-        "DSD and MQA Support",
-        "15-hour Battery Life"
-      ],
-      brand: "SoundFidelity",
-      model: "PHRMP-X2",
-      warranty: "2 Years"
-    },
-    {
-      id: "au-008",
-      name: "Smart Soundbar with Alexa",
-      price: 39999,
-      image: "/products/earbuds.jpg",
-      category: "audio",
-      description: "Enhance your TV experience with this smart soundbar featuring voice control, streaming capability, and immersive sound.",
-      features: [
-        "Dolby Atmos & DTS:X",
-        "Built-in Voice Assistant",
-        "Wireless Subwoofer",
-        "4K HDR Passthrough",
-        "Multi-room Audio"
-      ],
-      brand: "SmartSound",
-      model: "SSB-Voice",
-      warranty: "2 Years"
-    },
-    {
-      id: "au-009",
-      name: "DJ Professional Headphones",
-      price: 24999,
-      image: "/products/audio.jpg",
-      category: "audio",
-      badge: "Professional",
-      description: "Designed specifically for DJs and music producers, these headphones feature swiveling ear cups, punchy bass, and durability for professional use.",
-      features: [
-        "50mm Drivers",
-        "Rotating Ear Cups",
-        "Coiled and Straight Cables",
-        "Foldable Design",
-        "Replaceable Parts"
-      ],
-      brand: "BeatMix",
-      model: "DJP-500",
-      warranty: "3 Years"
-    },
-    {
-      id: "au-010",
-      name: "Bone Conduction Sport Headphones",
-      price: 14999,
-      image: "/products/earbuds.jpg",
-      category: "audio",
-      badge: "Sport",
-      description: "Experience open-ear listening with these bone conduction headphones, perfect for runners and cyclists who need to stay aware of their surroundings.",
-      features: [
-        "Bone Conduction Technology",
-        "8-hour Battery Life",
-        "IP67 Sweat & Waterproof",
-        "Titanium Frame",
-        "Bluetooth 5.0"
-      ],
-      brand: "SportAudio",
-      model: "BCSH-Runner",
-      warranty: "2 Years"
+      brand: "Toby",
+      model: "Tb-Lavender-270",
+      reviews: [
+        {
+          rating: 4.6,
+          comment: "Great sound quality, but a bit pricey."
+        }
+      ]
     }
   ],
-  
-  accessories: [
+
+  carryGiftBags: [
     {
-      id: "acc-001",
-      name: "Premium Leather Phone Case",
-      price: 4999,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      badge: "Handcrafted",
-      description: "Protect your smartphone in style with our premium leather phone case, handcrafted from genuine full-grain leather that develops a beautiful patina over time.",
+      id: "cb-111",
+      name: "Non-Woven D-Cut (Print)",
+      price: 160,
+      images: [
+        "/products/bag.png",
+        "/products/bags.png",
+      ],
+      category: "carry-box-bags",
+      badge: "per 1kg",
+      description: "",
       features: [
         "Full-grain Leather",
         "Microfiber Lining",
@@ -981,174 +1488,210 @@ export const productData: Record<string, Product[]> = {
       ],
       brand: "LuxCase",
       model: "Premium Leather Series",
-      warranty: "1 Year"
+      warranty: "1 Year",
+      reviews: [
+        {
+          rating: 4,
+          comment: "Stylish and functional!"
+        },
+        {
+          rating: 4,
+          comment: "Stylish and functional!"
+        }
+      ]
     },
     {
-      id: "acc-002",
-      name: "65W GaN Charger",
-      price: 3999,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      description: "Charge all your devices with a single compact charger. This 65W GaN charger features multiple ports and fast charging technology.",
-      features: [
-        "65W Total Output",
-        "2x USB-C, 1x USB-A Ports",
-        "Power Delivery 3.0",
-        "GaN Technology",
-        "Foldable Plug"
+      id: "cb-001",
+      name: "1Kg Sweet Box",
+      price: 14,
+      images: [
+        "/products/1kgbox.jpg",
+        "/products/1kgopen.png",
       ],
-      brand: "PowerTech",
-      model: "GaN-65",
-      warranty: "2 Years"
+      category: "carry-box-bags",
+      description: "An elegant box designed for sweet and delectable treats.",
+      features: [
+        "Material: High-quality cardboard",
+        "Size: Perfect for a variety of sweets",
+        "Design: Attractive and festive",
+      ],
+      reviews: [
+         {
+          rating: 5,
+          comment: "Perfect for gifting sweets during festivals!"
+         },
+         {
+          rating: 4,
+          comment: "Great quality and design!"
+         },
+         {
+          rating: 4,
+          comment: "Loved the traditional look!"
+         }
+      ],
     },
     {
-      id: "acc-003",
-      name: "Smart Fitness Tracker Band",
-      price: 2499,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      badge: "Bestseller",
-      description: "Track your fitness goals with this affordable yet feature-packed fitness band featuring heart rate monitoring, sleep tracking, and notifications.",
-      features: [
-        "Heart Rate Monitor",
-        "Sleep Tracking",
-        "5 ATM Water Resistance",
-        "14-day Battery Life",
-        "Smartphone Notifications"
+      id: "cb-002",
+      name: "Bhaji Box 1Kg",
+      price: 20,
+      images: [
+        "/products/bhji.jpg",
+        "/products/bhaji1.jpg",
       ],
-      brand: "FitLife",
-      model: "Tracker Pro",
-      warranty: "1 Year"
+      category: "carry-box-bags",
+      description: "A beautiful box for gifting sweets during celebrations.",
+      features: [
+        "Material: Sturdy paperboard",
+        "Ideal for Diwali and other festivals",
+        "Comes with a decorative ribbon",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Perfect for gifting sweets during festivals!"
+        },
+        {
+          rating: 4,
+          comment: "Great quality and design!"
+        },
+        {
+          rating: 4,
+          comment: "Loved the traditional look!"
+        },
+        {
+          rating: 5,
+          comment: "Beautifully designed, made my gift stand out!"
+        }
+
+      ],
     },
     {
-      id: "acc-004",
-      name: "Wireless Charging Pad",
-      price: 1999,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      badge: "Fast Charge",
-      description: "Charge your compatible devices without the hassle of cables. This sleek wireless charging pad supports fast charging and features a non-slip surface.",
-      features: [
-        "15W Fast Charging",
-        "Qi Compatibility",
-        "LED Charging Indicator",
-        "Non-slip Surface",
-        "Over-voltage Protection"
+      id: "cb-003",
+      name: "Pizza Box (9'') ",
+      price: 10,
+      images: [
+        "/products/pizza9.png",
+        "/products/pizza.png",
+        "/products/pizzamain.png"
       ],
-      brand: "ChargeTech",
-      model: "WCP-15",
-      warranty: "1 Year"
+      category: "carry-box-bags",
+      description: "Perfect for carrying hot and fresh pizzas.",
+      features: [
+        "Material: Durable cardboard",
+        "Size: Available in multiple sizes",
+        "Grease-resistant",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Perfect for carrying pizzas!"
+        },
+        {
+          rating: 4,
+          comment: "Sturdy and keeps the pizza warm!"
+        },
+        {
+          rating: 4,
+          comment: "Great quality, no leaks!"
+        },
+        {
+          rating: 4,
+          comment: "Ideal for pizza delivery!"
+        }
+      ],
     },
     {
-      id: "acc-005",
-      name: "Laptop Sleeve Case",
-      price: 2999,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      description: "Protect your laptop with this stylish yet functional sleeve case featuring water-resistant materials and extra pockets for accessories.",
-      features: [
-        "Water-resistant Material",
-        "Shock-absorbing Padding",
-        "Accessory Pockets",
-        "Available in Multiple Sizes",
-        "Premium YKK Zippers"
+      id: "cb-004",
+      name: "Pizza Box(10'')",
+      price: 13,
+      images: [
+        "/products/pizza10.png",
+        "/products/pizza.png",
+        "/products/pizzamain.png"
       ],
-      brand: "TechCarry",
-      model: "UltraSleeve",
-      warranty: "1 Year"
+      category: "carry-box-bags",
+      description: "Perfect for carrying hot and fresh pizzas.",
+      features: [
+        "Material: Durable cardboard",
+        "Size: Available in multiple sizes",
+        "Grease-resistant",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Perfect for carrying pizzas!"
+        },
+        {
+          rating: 4,
+          comment: "Sturdy and keeps the pizza warm!"
+        },
+        {
+          rating: 4,
+          comment: "Great quality, no leaks!"
+        },
+        {
+          rating: 4,
+          comment: "Ideal for pizza delivery!"
+        }
+      ],
     },
     {
-      id: "acc-006",
-      name: "Portable Power Bank 20000mAh",
-      price: 3499,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      badge: "High Capacity",
-      description: "Never run out of battery with this high-capacity power bank featuring fast charging, multiple ports, and a compact design.",
-      features: [
-        "20000mAh Capacity",
-        "18W USB-C PD Output",
-        "Dual USB-A Ports",
-        "LED Power Indicator",
-        "Airline Safe"
+      id: "cb-005",
+      name: "Pizza Box(12'')",
+      price: 16,
+      images: [
+        "/products/pizza12.png",
+        "/products/pizza.png",
+        "/products/pizzamain.png"
       ],
-      brand: "PowerMax",
-      model: "PB-20K",
-      warranty: "18 Months"
+      category: "carry-box-bags",
+      description: "Perfect for carrying hot and fresh pizzas.",
+      features: [
+        "Material: Durable cardboard",
+        "Size: Available in multiple sizes",
+        "Grease-resistant",
+      ],
+      reviews: [
+        {
+          rating: 5,
+          comment: "Perfect for carrying pizzas!"
+        },
+        {
+          rating: 4,
+          comment: "Sturdy and keeps the pizza warm!"
+        },
+        {
+          rating: 4,
+          comment: "Great quality, no leaks!"
+        }
+      ],
     },
     {
-      id: "acc-007",
-      name: "Bluetooth Tracker Tags",
-      price: 1499,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      description: "Keep track of your valuable items with these compact Bluetooth tracker tags. Attach to keys, bags, or anything important you don't want to lose.",
-      features: [
-        "Bluetooth 5.0 Technology",
-        "200ft Range",
-        "Replaceable Battery",
-        "Water Resistant",
-        "Crowd Finding Network"
+      id: "cb-006",
+      name: "Grilled Sandwich Box",
+      price: 5,
+      images: [
+        "/products/sandwich box.png",
+        "/products/sandwich box1.png",
+        "/products/sandwichbox3.png"
       ],
-      brand: "FinderTech",
-      model: "TrackTag Mini",
-      warranty: "1 Year"
+      category: "carry-box-bags",
+      description: "Ideal for packing delicious grilled sandwiches.",
+      features: [
+        "Insulated to keep sandwiches warm",
+        "Material: Eco-friendly",
+        "Design: Attractive and functional",
+      ],
+      reviews: [
+          {
+          rating: 5,
+          comment: "Great box for sandwiches!",
+          },
+          {
+          rating: 4,
+          comment: "Good box for sandwiches!"
+          }
+      ],
     },
-    {
-      id: "acc-008",
-      name: "Premium Braided USB-C Cable",
-      price: 1299,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      badge: "Durable",
-      description: "This premium braided USB-C cable features reinforced stress points, fast charging capability, and a sleek design that won't tangle.",
-      features: [
-        "10ft/3m Length",
-        "Nylon Braided Design",
-        "100W Power Delivery",
-        "Reinforced Connectors",
-        "10,000+ Bend Lifespan"
-      ],
-      brand: "CablePro",
-      model: "Endurance-C",
-      warranty: "Lifetime"
-    },
-    {
-      id: "acc-009",
-      name: "Adjustable Laptop Stand",
-      price: 2499,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      description: "Improve your posture and laptop cooling with this adjustable aluminum laptop stand featuring multiple height settings and a foldable design.",
-      features: [
-        "Aluminum Construction",
-        "7 Height Adjustments",
-        "Foldable Design",
-        "Non-slip Silicone Pads",
-        "Compatible with 10-17\" Laptops"
-      ],
-      brand: "ErgoDeck",
-      model: "AdjustPro",
-      warranty: "2 Years"
-    },
-    {
-      id: "acc-010",
-      name: "Smart Key Finder",
-      price: 1999,
-      image: "/products/accessories.jpg",
-      category: "accessories",
-      badge: "Smart Home",
-      description: "Never lose your keys again with this smart key finder that integrates with your home assistant and features a loud ring and LED light.",
-      features: [
-        "Voice Assistant Compatible",
-        "90dB Ring Volume",
-        "LED Flashlight",
-        "300ft Bluetooth Range",
-        "Replaceable Battery"
-      ],
-      brand: "SmartFind",
-      model: "KeyAlert Pro",
-      warranty: "1 Year"
-    }
   ]
-}; 
+};
