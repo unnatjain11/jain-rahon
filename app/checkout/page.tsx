@@ -115,8 +115,8 @@ export default function CheckoutPage() {
   // Generate UPI payment string for QR code
   const generateUpiPaymentString = () => {
     const amount = getCartTotal();
-    const payeeName = "EasyShop";
-    const payeeMerchantCode = process.env.NEXT_PUBLIC_MERCHANT_CODE || "JAIN TRADERS";
+    const payeeName = "JAIN TRADERS";
+    const payeeMerchantCode = process.env.NEXT_PUBLIC_MERCHANT_CODE || "unnatjain9988@okaxis";
     const transactionNote = `Payment for order at Jain traders`;
     
     return `upi://pay?pa=${upiId}&pn=${payeeName}&mc=${payeeMerchantCode}&tr=ORDER${Date.now().toString().slice(-8)}&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
