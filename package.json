@@ -1,7 +1,23 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
+  "name": "pnpm",
+  "version": "10.15.1",
   "private": true,
+  "description": "EasyShop is a modern, user-friendly e-commerce web application that allows users to browse products, add items to a cart, and complete purchases using secure UPI/QR code payments. The platform is designed for scalability, accessibility, and ease of use, making online shopping seamless for everyone.",
+  "homepage": "https://github.com/unnatjain11/jain-rahon#readme",
+  "bugs": {
+    "url": "https://github.com/unnatjain11/jain-rahon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unnatjain11/jain-rahon.git"
+  },
+  "license": "ISC",
+  "author": "j",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
