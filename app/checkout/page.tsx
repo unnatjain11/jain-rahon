@@ -508,27 +508,27 @@ export default function CheckoutPage() {
               </div>
             </div>
             
-                        {/* Payment Info */}
-                        <div className="mt-6 pt-6 border-t">
-                          <h3 className="text-base font-medium mb-4">Payment Methods</h3>
-                          <div className="space-y-3">
-                            <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                              <CreditCard className="w-5 h-5" />
-                              <span>Credit/Debit Card</span>
-                            </div>
-                            <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                              <Shield className="w-5 h-5" />
-                              <span>UPI Payment</span>
-                            </div>
-                            <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                              <Truck className="w-5 h-5" />
-                              <span>Net Banking</span>
-                            </div>
-                          </div>
-                        </div>
-                      </Card>
-                    </div>
-                  </div>
+            {/* Payment Info */}
+            <div className="mt-6 pt-6 border-t">
+              <h3 className="text-base font-medium mb-4">Payment Methods</h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <CreditCard className="w-5 h-5" />
+                  <span>Credit/Debit Card</span>
                 </div>
-              );
-            }
+                <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <Shield className="w-5 h-5" />
+                  <span>UPI Payment</span>
+                </div>
+                <div className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <Truck className="w-5 h-5" />
+                  <span>Net Banking</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
