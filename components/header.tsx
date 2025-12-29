@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
@@ -88,11 +87,11 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="left" className="pr-0">
             <nav className="grid gap-6 text-lg font-medium">
-              <Link href="/" className="flex items-center space-x-2 text-sm font-bold" onClick={() => setIsOpen(false)}>
+              <a href="/" className="flex items-center space-x-2 text-sm font-bold" onClick={() => setIsOpen(false)}>
                 <span>Jain Traders</span>
-              </Link>
+              </a>
               {routes.map((route) => (
-                <Link
+                <a
                   key={route.href}
                   href={route.href}
                   className={cn(
@@ -102,20 +101,22 @@ export function Header() {
                   onClick={() => setIsOpen(false)}
                 >
                   {route.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </SheetContent>
         </Sheet>
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+        <a href="/" className="mr-6 flex items-center space-x-2">
           <span className="hidden font-bold sm:inline-block">Jain Traders</span>
-        </Link>
+        </a>
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink asChild>
+                <a href="/" className={navigationMenuTriggerStyle()}>
+                  Home
+                </a>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Products</NavigationMenuTrigger>
@@ -135,89 +136,105 @@ export function Header() {
                     </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/food-beverage-containers" legacyBehavior passHref>
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Food & Beverage Containers</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Quality containers for serve Food and Drinks
-                        </p>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <a href="/products/food-beverage-containers">
+                        <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Food & Beverage Containers</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Quality containers for serve Food and Drinks
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/party-items" legacyBehavior passHref>
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Party Items</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                             Decoration items for Special Occasions                         
-                        </p>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <a href="/products/party-items">
+                        <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Party Items</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Decoration items for Special Occasions
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/paper-printing-items" legacyBehavior passHref>
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Paper & Printing Items</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Printing, Branding and Communication
-                        </p>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <a href="/products/paper-printing-items">
+                        <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Paper & Printing Items</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Printing, Branding and Communication
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/cleaning-hygiene-products" legacyBehavior passHref>
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Cleaning & Hygiene Products</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Personal or Environmental Cleanliness
-                        </p>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <a href="/products/cleaning-hygiene-products">
+                        <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Cleaning & Hygiene Products</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Personal or Environmental Cleanliness
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/fragrance-freshening" legacyBehavior passHref>
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Fragrance & Freshening</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        For Improving the smell of a room or area
-                        </p>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <a href="/products/fragrance-freshening">
+                        <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Fragrance & Freshening</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            For Improving the smell of a room or area
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/products/carry-box-bags" legacyBehavior passHref>
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Carry Bags & Boxes</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Used for carrying or presenting Something
-                        </p>
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <a href="/products/carry-box-bags">
+                        <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Carry Bags & Boxes</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Used for carrying or presenting Something
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
                   </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink asChild>
+                <a href="/about" className={navigationMenuTriggerStyle()}>
+                  About
+                </a>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink asChild>
+                <a href="/contact" className={navigationMenuTriggerStyle()}>
+                  Contact
+                </a>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
-            <Link href="/cart">
-              <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative" asChild>
+              <a href="/cart">
                 <ShoppingCart className="h-5 w-5" />
                 <CartBadge />
                 <span className="sr-only">Cart</span>
-              </Button>
-            </Link>
+              </a>
+            </Button>
             <Button
               variant="ghost"
               size="icon"
