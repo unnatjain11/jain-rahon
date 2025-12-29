@@ -13,7 +13,6 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Separator } from "@/components/ui/separator"
 import { useCart } from "@/components/cart-provider"
 import { useToast } from "@/hooks/use-toast"
-import QRCode from "react-qr-code"
 import {
   Dialog,
   DialogContent,
@@ -75,14 +74,11 @@ type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 export default function CheckoutPage() {
   const { cartItems, getCartTotal, clearCart } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showQrCode, setShowQrCode] = useState(false);
-  const [paymentOpen, setPaymentOpen] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
   const [sameAsBilling, setSameAsBilling] = useState(true);
   const [isClient, setIsClient] = useState(false);
   const formValues = useRef<CheckoutFormValues | null>(null);
-  const [upiId, setUpiId] = useState(process.env.NEXT_PUBLIC_UPI_ID || "unnatjain9988@okaxis");
 
   // Mark when component is mounted on client
   useEffect(() => {
@@ -112,15 +108,13 @@ export default function CheckoutPage() {
     },
   });
 
-  // Generate UPI payment string for QR code
-  const generateUpiPaymentString = () => {
-    const amount = getCartTotal();
-    const payeeName = "JAIN TRADERS";
-    const payeeMerchantCode = process.env.NEXT_PUBLIC_MERCHANT_CODE || "unnatjain9988@okaxis";
-    const transactionNote = `Payment for order at Jain traders`;
-    
-    return `upi://pay?pa=${upiId}&pn=${payeeName}&mc=${payeeMerchantCode}&tr=ORDER${Date.now().toString().slice(-8)}&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
-  };
+  // Load Razorpay script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   // Process the order after payment
   const processOrder = async () => {
@@ -184,13 +178,40 @@ export default function CheckoutPage() {
     }
   };
 
-  // Handle form submission
+  // Handle form submission and Razorpay integration
   const onSubmit = (data: CheckoutFormValues) => {
     // Store form data for later processing
     formValues.current = data;
     
-    // Open payment dialog
-    setPaymentOpen(true);
+    // Initialize Razorpay payment
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_your_key_here', // Replace with your Razorpay key
+      amount: getCartTotal() * 100, // Amount in paisa
+      currency: 'INR',
+      name: 'Jain Traders',
+      description: 'Payment for order',
+      image: '/logo.png', // Optional
+      order_id: '', // If you have order ID from backend, set it here
+      handler: function (response: any) {
+        // Payment success handler
+        console.log('Payment successful:', response);
+        processOrder();
+      },
+      prefill: {
+        name: `${data.billingFirstName} ${data.billingLastName}`,
+        email: data.billingEmail,
+        contact: data.billingPhone,
+      },
+      notes: {
+        address: data.billingAddress,
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+
+    const rzp = new (window as any).Razorpay(options);
+    rzp.open();
   };
 
   // Use consistent initial render structure to avoid hydration mismatch
@@ -487,64 +508,6 @@ export default function CheckoutPage() {
               </div>
             </div>
             
-            {/* UPI Payment Info (Read-only) */}
+            {/* Payment Info */}
             <div className="mt-6 pt-6 border-t">
-              <h3 className="text-base font-medium mb-3">Payment Method: UPI</h3>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium">UPI ID:</p>
-                  <p className="text-sm font-bold">{upiId}</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </div>
-
-      {/* Payment Dialog */}
-      <Dialog open={paymentOpen} onOpenChange={setPaymentOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>UPI Payment</DialogTitle>
-            <DialogDescription>
-              <span className="block mb-2">Scan this QR code with any UPI app to pay ₹{getCartTotal().toLocaleString()}</span>
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex flex-col items-center justify-center p-4">
-            <div className="p-3 bg-white rounded-md shadow-sm mb-4 relative">
-              <QRCode 
-          value={generateUpiPaymentString()} 
-          size={200}
-              />
-            </div>
-            <div className="text-center space-y-2">
-              <p className="font-medium">Payee: Jain Traders</p>
-              <p className="font-medium">Amount: ₹{getCartTotal().toLocaleString()}</p>
-              <p className="text-sm text-muted-foreground">UPI ID: {upiId}</p>
-            </div>
-            <div className="flex gap-4 mt-6">
-              <Button 
-          variant="outline" 
-          onClick={() => setPaymentOpen(false)}
-              >
-          Cancel
-              </Button>
-              <Button 
-          onClick={() => {
-            setPaymentOpen(false);
-            processOrder();
-          }}
-          className="relative overflow-hidden"
-              >
-          <span>Payment Complete</span>
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground mt-4 text-center">
-              Please complete the payment in your UPI app and then click 'Payment Complete.'
-            </p>
-          </div>
-        </DialogContent>
-      </Dialog>
-    </div>
-  );
-} 
+              <h3 className="text-base font-medium mb
